@@ -11,4 +11,4 @@ today = datetime.today()
 type(today)
 # <class 'datetime.datetime'>
 
-
+todaydate = date.today()
