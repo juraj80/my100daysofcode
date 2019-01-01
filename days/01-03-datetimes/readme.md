@@ -1,7 +1,7 @@
 # Days 01-03 Dealing with Datetimes
 
 
-**1. datetime object**
+**1. 'datetime.datetime' object**
 
 ```
 from datetime import datetime
@@ -18,7 +18,7 @@ type(today)
 
 Use: for the exact timestamps or logging
 
-**2. date object**
+**2. 'datetime.date' object**
 
 ```
 from datetime import date
@@ -39,5 +39,39 @@ todaydate.year
 # 2018
 ```
 
-**3. timedelta object**
+**3. 'datetime.timedelta' object**
+
+```
+from datetime import timedelta
+
+
+t = timedelta(days=4, hours=10)
+
+type(t)
+# <class 'datetime.timedelta'>
+
+t.days
+# 4
+
+t.seconds
+# 36000
+
+t.hours
+# Traceback (most recent call last):
+#   File "<stdin>", line 1, in <module>
+# AttributeError: 'datetime.timedelta' object has no attribute
+
+t.seconds / 60 / 60
+# 10.0
+
+t.seconds / 3600
+# 10.0
+```
+
+
+![alt text](pics/pic01.png)
+
+![alt text](pics/pic02.png)
+
+
 
