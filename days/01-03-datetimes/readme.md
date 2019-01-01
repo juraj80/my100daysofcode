@@ -39,4 +39,5 @@ todaydate.year
 # 2018
 ```
 
+**3. timedelta object**
 
