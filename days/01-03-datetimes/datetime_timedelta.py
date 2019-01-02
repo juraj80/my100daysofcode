@@ -24,7 +24,7 @@ t.seconds / 60 / 60
 t.seconds / 3600
 # 10.0
 
-##############
+# # # # # # # # # # # # # #
 
 eta = timedelta(hours=6)
 
