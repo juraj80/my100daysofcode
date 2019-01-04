@@ -1,8 +1,6 @@
 from collections import defaultdict, namedtuple, Counter
 import csv
-import random
 from urllib.request import urlretrieve
-
 
 movie_data = 'https://raw.githubusercontent.com/pybites/challenges/solutions/13/movie_metadata.csv'
 
@@ -28,13 +26,11 @@ def get_movies_by_director(data=movies_csv):
 
             m = Movie(title=movie, year=year, score=score)
             directors[director].append(m) # defaultdict in action, we don't have to initialize an empty list up front for every director
-
     return directors
-
-#
 
 def main():
     directors = get_movies_by_director()
+
     # lookup for Christopher Nolan
     print(directors['Christopher Nolan'])
 
@@ -42,9 +38,7 @@ def main():
     cnt = Counter()
     for director, movies in directors.items():
         cnt[director] += len(movies)
-
     print(cnt.most_common(5))
-
 
 if __name__ == '__main__':
     main()
