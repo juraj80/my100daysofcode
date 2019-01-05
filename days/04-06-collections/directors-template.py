@@ -17,7 +17,7 @@ Movie = namedtuple('Movie', 'title year score')
 def get_movies_by_director(data=movies_csv):
     '''Extracts all movies from csv and stores them in a dictionary
         where keys are directors, and values is a list of movies (named tuples)'''
-    directors = defaultdict(list)
+    directors = defaultdict(list) # to get a dict, where keys will be directores, and values will be list of movies
     with open(data) as f: # The Pythonic way to open a file is to use a context manager ('with' statement)
         for line in csv.DictReader(f): # https://docs.python.org/3.4/library/csv.html - creates an object which operates like a regular reader csv.DictReader(csvfile, fieldnames=None, restkey=None, restval=None, dialect='excel', *args, **kwds). If the fieldnames parameter is omitted, the values in the first row of csvfile will be used as the fieldnames
             try:
