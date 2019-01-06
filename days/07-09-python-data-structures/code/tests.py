@@ -40,6 +40,7 @@ def main():
     test_get_all_jeeps()
     test_get_first_model_each_manufacturer()
     test_get_all_matching_models()
+    test_sort_dict_alphabetically()
 
 
 if __name__ == '__main__':

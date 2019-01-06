@@ -49,6 +49,10 @@ def get_all_matching_models(cars=cars, grep='trail'):
 
 def sort_car_models(cars=cars):
     """sort the car models (values) and return the resulting cars dict"""
-    pass
+    result = dict()
+    for key, values in cars.items():
+        values = sorted(values)
+        result[key] = values
+    return result
 
 
