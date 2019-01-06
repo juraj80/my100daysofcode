@@ -47,8 +47,7 @@ def sort_car_models(cars=cars):
     """sort the car models (values) and return the resulting cars dict"""
     result = dict()
     for key, values in cars.items():
-        values = sorted(values)
-        result[key] = values
+        result[key] = sorted(values)
     return result
 
 
