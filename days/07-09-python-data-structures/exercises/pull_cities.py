@@ -30,12 +30,12 @@ def main():
     # replace the 15th key in the dictionary with the 28th item in the list
     item28 = list_of_states[27]
     key15 = states_keys[14]
-
+    print('Before :', dict_of_states)
     dict_of_states[item28[0]] = dict_of_states[key15]
     del dict_of_states[key15]
     print('item28=',item28[0])
     print('key15=',key15)
-    print(dict_of_states)
+    print('After :', dict_of_states)
 
 
 
