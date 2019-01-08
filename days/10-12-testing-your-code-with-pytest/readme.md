@@ -319,8 +319,8 @@ these scenarios and see if each scenario throws the value error or accepts the g
 check for exceptions in pytest which are important because raising exceptions is a common Python pattern. So we are going to pass a sequence
 of return values as if input was called that many times.
 ```
-@patch("builtins.input"), side_effects =[11,'12', 'bob',12, 
-                                         5, -1, 21, 7, None]
+@patch("builtins.input", side_effects =[11,'12', 'bob',12, 
+                                         5, -1, 21, 7, None])
 ```
 After that we define test_guess function and we pass an argument, it can be anything. 
 
@@ -412,3 +412,46 @@ def test_guess(inp):
 
 So that is how we use mocking to circumvent this input function waiting for input and going through all these scenarios by giving various
 side effects.
+
+
+### Testing a program's stdout with capfd
+
+Next function to test is _validate_guess(). We are going to use another feature of pytest, which is capfd - that will capture the standard
+output of the program and execution. Very useful, because for this function we not only want to check for boolean return value, but we also 
+want to see the actual output by the function to print and we want accurate information printed for the user:
+
+Docstring:
+```
+"""Verify if guess is correct, print the following when applicable:
+           {guess} is correct!
+           {guess} is too high
+           {guess} is too low
+           Return a boolean"""
+```
+Capfd is very cool to capture output printed by our program.
+
+`def test_validate_guess(capfd):`
+
+
+So let's make a game and set the answer to 2.
+
+```
+def test_validate_guess(capfd):
+    game = Game()
+    game._answer = 2
+```
+
+Let's validate that 1 is not a winning number. The function should return False and to say False in pytest is to assert not some 
+function is truthy.
+
+`assert not game._validate_guess(1)`
+
+And of course, is easy to do the same for higher assertion and finally for good assertion.
+```
+assert not game._validate_guess(3)
+assert game._validate_guess(2)
+```
+
+And now back to capfd, if we actually want to see what the print is printing to the console, because that is what we see if we 
+run the game and it's printing these kind of feedbacks to the user. So we want to test if these are what we are expecting.
+
