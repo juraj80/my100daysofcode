@@ -454,4 +454,94 @@ assert game._validate_guess(2)
 
 And now back to capfd, if we actually want to see what the print is printing to the console, because that is what we see if we 
 run the game and it's printing these kind of feedbacks to the user. So we want to test if these are what we are expecting.
+One very useful trick is to redirect the output, the standard output, the error we just throw away and use capfd and call its 
+`readouterr()` method. Let's just see what that give us.
+```
+out, _ = capfd.readouterr()
+print(out)
+```
 
+If we want to print inside our test, one way with pytest to show that to the console is to add the -s. And that actually stands 
+for: shortcut for `--capture=no`. So it's not capturing the output, meaning in this scenario it prints it to the console.
+
+```
+test_guess.py .1 is too low
+
+.
+```
+
+There's also a new line. So one is too low. We captured that in the output variable, which we printed to the console with 
+`print(out)`. So Capfd is very cool to capture output printed by our program. And now we can make assertions on that, as 
+on any other thing. So we can say:
+```
+assert out.rstrip() == '1 is too low'
+```
+And we can do the same for other two.
+```
+assert not game._validate_guess(3)
+out, _ = capfd.readouterr()
+assert out.rstrip() == '3 is too high'
+
+
+assert game._validate_guess(2)
+out, _ = capfd.readouterr()
+assert out.rstrip() == '2 is correct!'
+```
+
+If we run the test we should get 3 passed tests without error.
+```
+(sample_env) MacBook-Pro-xxx:guess xxx$ pytest
+===================================================================================== test session starts ======================================================================================
+platform darwin -- Python 3.6.0, pytest-4.1.0, py-1.7.0, pluggy-0.8.0
+rootdir: /Users/guess, inifile:
+plugins: cov-2.6.1
+collected 3 items                                                                                                                                                                              
+
+test_guess.py ...                                                                                                                                                                        [100%]
+
+=================================================================================== 3 passed in 0.06 seconds ===================================================================================
+```
+
+### Testing(simulating) the game end-to-end
+
+For the final two test methods we actually want to run a whole game from end to end. And we're going to use the same technique as 
+before because we're still stuck with that input method that requires us to input data which we don't have in an automated way of 
+running test with pytest. So we're going to do a patch of the input again and we're going to just simulate a whole game.
+
+We are going to test a win scenario and we're going to give it the input which is the requirement of the patch and we're also
+going to capture the standard output as we did it before.
+
+@patch("builtins.input", side_effects=[4,22,9,4,6])
+def test_game_win(inp, capfd):
+    game = Game()
+    
+So in this scenario win but at the fifth attempt, so 6.
+```
+@patch("builtins.input", side_effects=[4,22,9,4,6])
+def test_game_win(inp, capfd):
+    game = Game()
+    game._answer = 6
+    
+    game()
+    assert game._win is True
+```
+
+So what we actually did is, it went through all these numbers and when it got to the final one, the fifth attempt, it asserted 
+answers true, so the _win  was set to true. 
+
+We are also interested how the output looks of the program.
+
+```
+@patch("builtins.input", side_effect=[4, 22, 9, 4, 6])
+def test_game_win(inp, capfd):
+    ...
+    out = capfd.readouterr()[0]
+    expected = ['4 is too low', 'Number not in range',
+                '9 is too high', 'Already guessed',
+                '6 is correct!', 'It took you 3 guesses']
+
+    output = [line.strip() for line
+              in out.split('\n') if line.strip()]
+    for line, exp in zip(output, expected):
+        assert line == exp
+```
