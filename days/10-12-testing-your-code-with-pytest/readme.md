@@ -605,3 +605,170 @@ Guessed 5 times, answer was 13
 
 But we still need to have a critical eye of what we're testing. Because one thing is to have all our lines, some were called, 
 but the other thing is how we call them, what are we testing. Are we testing all the edge cases? So testing is an art in itself.
+
+### A TDD primer writing Fizz buzz
+
+One final thing is when to write our test. The motto "having tests is better than no tests" is the most important, but there is a whole
+style of test driven development, which is to write test before our actual code and to drive your design by those tests.
+
+https://en.wikipedia.org/wiki/Fizz_buzz
+
+Let's write the Fizz Buzz program, which is a children's game, and it basically is a sequence where numbers divisible by 3 and 5 return 
+Fizz and Buzz and if they're both divisible by 3 and 5 it returns Fizz Buzz. So let's write that program, but do it in a TDD way, by writing
+the tests first. And we are going to use repetitiveness of these test to also show a nice feature of pytest which is parameterize.
+
+We define first lines in test_fizzbuzz.py file:
+
+_test_fizzbuzz.py_
+```
+from fizzbuzz import fizzbuzz
+
+def test_fizzbuzz():
+    assert fizzbuzz(1) == 1
+    assert fizzbuzz(2) == 2
+    assert fizzbuzz(3) == 'Fizz'
+    
+```
+And in fizzbuzz.py file:
+
+_fizzbuzz.py_
+```
+def fizzbuzz():
+    pass
+```
+
+When we run pytest it will return:
+```
+test_fizzbuzz.py F                                                                                                                                                                       [100%]
+
+=========================================================================================== FAILURES ===========================================================================================
+________________________________________________________________________________________ test_fizzbuzz _________________________________________________________________________________________
+
+    def test_fizzbuzz():
+>       assert fizzbuzz(1) == 1
+E       TypeError: fizzbuzz() takes 0 positional arguments but 1 was given
+
+test_fizzbuzz.py:4: TypeError
+=================================================================================== 1 failed in 0.08 seconds ===================================================================================
+```
+
+Note: An advantages of TDD is that it gives you a spec and makes you think more about the design of your program.
+
+So we give fizzbuzz function positional argument n and return statement with n.
+```
+def fizzbuzz(n):
+    return n
+```
+
+Then we get:
+```
+test_fizzbuzz.py F                                                                                                                                                                       [100%]
+
+=========================================================================================== FAILURES ===========================================================================================
+________________________________________________________________________________________ test_fizzbuzz _________________________________________________________________________________________
+
+    def test_fizzbuzz():
+        assert fizzbuzz(1) == 1
+        assert fizzbuzz(2) == 2
+>       assert fizzbuzz(3) == 'Fizz'
+E       AssertionError: assert 3 == 'Fizz'
+E        +  where 3 = fizzbuzz(3)
+
+test_fizzbuzz.py:6: AssertionError
+=================================================================================== 1 failed in 0.06 seconds ===================================================================================
+```
+Now we know that we need some IF statement.
+```
+def fizzbuzz(n):
+    if n % 3 == 0:
+        return 'Fizz'
+    return n
+```
+If we run pytest, it works. So let's move on then. If we add 4, it still works. 
+```
+from fizzbuzz import fizzbuzz
+
+def test_fizzbuzz():
+    assert fizzbuzz(1) == 1
+    assert fizzbuzz(2) == 2
+    assert fizzbuzz(3) == 'Fizz'
+    assert fizzbuzz(4) == 4
+    assert fizzbuzz(5) == 'Buzz'
+```
+
+5 will return an AssertionError.
+```
+E       AssertionError: assert 5 == 'Buzz'
+E        +  where 5 = fizzbuzz(5)
+
+test_fizzbuzz.py:8: AssertionError
+```
+
+So let's change the fizzbuzz.py to accommodate that.
+```
+def fizzbuzz(n):
+    if n % 3 == 0:
+        return 'Fizz'
+    if n % 5 == 0:
+        return 'Buzz'
+    return n
+```
+And when we run pytest we will be green again, cool. 
+
+But we already see a lot of repetition, right? There is a cool feature in pytest, called parameterize. We can call it in our test file with tuples of 
+inputs and outputs for our function, and we don't have to repeat many lines with the assert statement.
+
+```
+import pytest
+
+from fizzbuzz import fizzbuzz
+
+@pytest.mark.parametrize("arg, ret",[
+    (1, 1),
+    (2, 2),
+    (3, 'Fizz'),
+    (4, 4),
+    (5, 'Buzz'),
+    (6, 'Fizz'),
+    (7, 7),
+    (8, 8),
+    (9, 'Fizz'),
+    (10, 'Buzz'),
+    (11, 11),
+    (12, 'Fizz'),
+    (13, 13),
+    (14, 14),
+    (15, 'Fizz Buzz'),
+    (16, 16),
+])
+def test_fizzbuzz(arg, ret):
+    assert fizzbuzz(arg) == ret
+```
+
+When we run pytest we get the last AssertionError:
+```
+E       AssertionError: assert 'Fizz' == 'Fizz Buzz'
+E         - Fizz
+E         + Fizz Buzz
+
+test_fizzbuzz.py:24: AssertionError
+```
+So we need to add this scenario to our fizzbuzz function.
+```
+def fizzbuzz(n):
+    if n % 3 == 0 and n % 5 == 0:
+        return 'Fizz Buzz'
+    if n % 3 == 0:
+        return 'Fizz'
+    if n % 5 == 0:
+        return 'Buzz'
+    return n
+````
+
+Run pytest:
+
+```
+test_fizzbuzz.py ................                                                                                                                                                        [100%]
+
+================================================================================== 16 passed in 0.04 seconds ===================================================================================
+```
