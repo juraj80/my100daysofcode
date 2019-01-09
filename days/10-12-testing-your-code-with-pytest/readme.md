@@ -510,11 +510,11 @@ running test with pytest. So we're going to do a patch of the input again and we
 
 We are going to test a win scenario and we're going to give it the input which is the requirement of the patch and we're also
 going to capture the standard output as we did it before.
-
+```
 @patch("builtins.input", side_effects=[4,22,9,4,6])
 def test_game_win(inp, capfd):
     game = Game()
-    
+```    
 So in this scenario win but at the fifth attempt, so 6.
 ```
 @patch("builtins.input", side_effects=[4,22,9,4,6])
@@ -545,3 +545,63 @@ def test_game_win(inp, capfd):
     for line, exp in zip(output, expected):
         assert line == exp
 ```
+The `expected` list contains list of expected values that variable `out` would return after it loop over list of `side_effects`.
+
+
+If we run the coverage we get 97% with still missing lines 83 and 87-88. Lines 87-88 are ok, its just a calling code.
+
+Line 83 is for definition of a lose scenario where we tried 5 times and still did not assert the answer.
+
+`Line 83          print(f'Guessed {MAX_GUESSES} times, answer was {self._answer}')
+`
+
+We are going to follow the same signature as above but we need more stamps and answer which is not in our all guesses.
+
+```
+@patch("builtins.input", side_effect=[None,5,9,14,11,12])
+def test_game_win(inp, capfd):
+    game = Game()
+    game._answer = 13
+```
+
+This scenario will also test that `None` doesn't count towards my guesses. So we actually do 6 inputs.
+
+```
+@patch("builtins.input", side_effect=[None,5,9,14,11,12])
+def test_game_win(inp, capfd):
+    game = Game()
+    game._answer = 13
+    
+    game()
+    assert game._win is False
+```
+
+When we run pytest, it should pass. When we launch game, it goes through all these outputs and having guessed 5 times.
+If we turn on non-capture mode it just prints the whole thing. That was the final thing to actually increase the coverage.
+If we take main() out, we have 100% coverage of our tests.
+
+`pytest -s   # non-caputure mode
+`
+```
+(sample_env) MacBook-Pro-uzivatela-Juraj:guess jurajklucka$ pytest -s
+===================================================================================== test session starts ======================================================================================
+platform darwin -- Python 3.6.0, pytest-4.1.0, py-1.7.0, pluggy-0.8.0
+rootdir: /Users/jurajklucka/PycharmProjects/100daysOfCode/days/10-12-testing-your-code-with-pytest/guess, inifile:
+plugins: cov-2.6.1
+collected 5 items                                                                                                                                                                              
+
+test_guess.py ....Please enter a number
+5 is too low
+9 is too low
+14 is too high
+11 is too low
+12 is too low
+Guessed 5 times, answer was 13
+.
+
+=================================================================================== 5 passed in 0.03 seconds ===================================================================================
+
+```
+
+But we still need to have a critical eye of what we're testing. Because one thing is to have all our lines, some were called, 
+but the other thing is how we call them, what are we testing. Are we testing all the edge cases? So testing is an art in itself.

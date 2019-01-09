@@ -70,5 +70,12 @@ def test_game_win(inp, capfd):
         assert line == exp
 
 
+@patch("builtins.input", side_effect=[None, 5, 9, 14, 11, 12])
+def test_game_lose(inp, capfd):
+    game = Game()
+    game._answer = 13
+
+    game()
+    assert game._win is False
 
 
