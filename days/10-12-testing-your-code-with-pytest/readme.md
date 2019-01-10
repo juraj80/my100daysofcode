@@ -511,13 +511,13 @@ running test with pytest. So we're going to do a patch of the input again and we
 We are going to test a win scenario and we're going to give it the input which is the requirement of the patch and we're also
 going to capture the standard output as we did it before.
 ```
-@patch("builtins.input", side_effects=[4,22,9,4,6])
+@patch("builtins.input", side_effect=[4,22,9,4,6])
 def test_game_win(inp, capfd):
     game = Game()
 ```    
 So in this scenario win but at the fifth attempt, so 6.
 ```
-@patch("builtins.input", side_effects=[4,22,9,4,6])
+@patch("builtins.input", side_effect=[4,22,9,4,6])
 def test_game_win(inp, capfd):
     game = Game()
     game._answer = 6
@@ -545,7 +545,7 @@ def test_game_win(inp, capfd):
     for line, exp in zip(output, expected):
         assert line == exp
 ```
-The `expected` list contains list of expected values that variable `out` would return after it loop over list of `side_effects`.
+The `expected` list contains list of expected values that variable `out` would return after it loop over list of `side_effect`.
 
 
 If we run the coverage we get 97% with still missing lines 83 and 87-88. Lines 87-88 are ok, its just a calling code.
@@ -772,3 +772,7 @@ test_fizzbuzz.py ................                                               
 
 ================================================================================== 16 passed in 0.04 seconds ===================================================================================
 ```
+
+### Concepts: Testing your code with pytest
+
+![alt text](pics/pic01.png)
