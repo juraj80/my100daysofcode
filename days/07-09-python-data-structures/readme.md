@@ -10,6 +10,6 @@
 ![alt text](pics/pic02.png)
 
 
-### 3. `dictionary`
+### 3. `dictionary`
 
 ![alt text](pics/pic03.png)
