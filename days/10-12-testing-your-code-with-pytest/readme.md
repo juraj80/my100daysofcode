@@ -319,7 +319,7 @@ these scenarios and see if each scenario throws the value error or accepts the g
 check for exceptions in pytest which are important because raising exceptions is a common Python pattern. So we are going to pass a sequence
 of return values as if input was called that many times.
 ```
-@patch("builtins.input", side_effects =[11,'12', 'bob',12, 
+@patch("builtins.input", side_effect=[11,'12', 'bob',12, 
                                          5, -1, 21, 7, None])
 ```
 After that we define test_guess function and we pass an argument, it can be anything. 
