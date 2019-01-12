@@ -792,3 +792,155 @@ test_fizzbuzz.py ................                                               
 All You Need to Know to Start Using Fixtures in Your pytest Code
 
 https://pybit.es/pytest-fixtures.html
+
+Example:
+
+_mydb.py_
+
+```
+class MyDB:
+    def __init__(self):
+        self.connection = Connection()
+
+    def connect(self, connection_string):
+        return self.connection
+
+class Connection:
+    def __init__(self):
+        self.cur = Cursor()
+
+    def cursor(self):
+        return self.cur
+
+    def close(self):
+        pass
+
+
+class Cursor:
+    def execute(self,query):
+        if query == "select id from emplyee_db where name=John":
+            return 123
+        elif query == "select id from emplyee_db where name=Tom":
+            return 456
+        else:
+            return -1
+
+    def close(self):
+        pass
+```  
+
+We are writing two unit tests:
+- verify John's employee id
+- verify Tom's employee id
+
+
+_test_mydb.py_
+
+```
+from mydb import MyDB
+
+def test_johns_id():
+    db = MyDB()
+    conn = db.connect("server")
+    curs = conn.cursor()
+    id = curs.execute("select id from emplyee_db where name=John")
+
+    assert id == 123
+
+
+def test_toms_id():
+    db = MyDB()
+    conn = db.connect("server")
+    curs = conn.cursor()
+    id = curs.execute("select id from emplyee_db where name=Tom")
+
+    assert id == 456
+```
+
+`pytest -v
+`
+
+```
+collected 2 items                                                                                                                                                                              
+
+test_mydb.py::test_johns_id PASSED                                                                                                                                                       [ 50%]
+test_mydb.py::test_toms_id PASSED                                                                                                                                                        [100%]
+
+=================================================================================== 2 passed in 0.03 seconds =====================================================================
+```
+
+Two issues with this test code:
+
+1) Code Repetition
+2) Creating expensive DB connection in every test case
+
+
+Two ways to fix those issues:
+
+1) setup and teardown methods (classic xunit style)
+2) fixtures(recommended)
+
+
+Setup and Teardown method
+
+_test_mydb.py_
+
+```
+from mydb import MyDB
+
+conn = None
+curs = None
+
+
+def setup_module(module):
+    global conn
+    global curs
+    db = MyDB()
+    conn = db.connect("server")
+    curs = conn.cursor()
+
+def teardown_module(module):
+    curs.close()
+    conn.close()
+
+def test_johns_id():
+    id = curs.execute("select id from emplyee_db where name=John")
+    assert id == 123
+
+def test_toms_id():
+    id = curs.execute("select id from emplyee_db where name=Tom")
+    assert id == 456
+```
+
+Fixtures method
+
+_test_mydb.py_
+```
+from mydb import MyDB
+import pytest
+
+@pytest.fixture(scope="module")
+def cur():
+    print("setting up")
+    db = MyDB()
+    conn = db.connect("server")
+    curs = conn.cursor()
+    yield curs
+    curs.close()
+    conn.close()
+    print("closing DB")
+
+def test_johns_id(cur):
+    id = cur.execute("select id from emplyee_db where name=John")
+    assert id == 123
+
+
+def test_toms_id(cur):
+    id = cur.execute("select id from emplyee_db where name=Tom")
+    assert id == 456
+```
+
+Fixtures leverage a concept of dependancy injection.
+
+
+
