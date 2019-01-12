@@ -789,9 +789,17 @@ test_fizzbuzz.py ................                                               
 
 ### Fixtures
 
+The purpose of test fixtures is to provide a fixed baseline upon which tests can reliably and repeatedly execute. 
+pytest fixtures offer dramatic improvements over the classic xUnit style of setup/teardown functions.
+A typical example is a database app that needs to setup and tear down its state before each test.
+
+https://docs.pytest.org/en/latest/fixture.html
+
 All You Need to Know to Start Using Fixtures in Your pytest Code
 
 https://pybit.es/pytest-fixtures.html
+
+https://www.youtube.com/watch?v=IVrGz8w0H8c
 
 Example:
 
