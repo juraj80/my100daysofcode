@@ -787,7 +787,6 @@ test_fizzbuzz.py ................                                               
 ![alt text](pics/pic09.png)
 ![alt text](pics/pic10.png)
 
-
 ### Fixtures
 
 All You Need to Know to Start Using Fixtures in Your pytest Code
