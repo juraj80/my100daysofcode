@@ -82,6 +82,7 @@ Then run it from command line:
 
 `pytest test_hello_pytest.py
 `
+Output:
 
 ```
 user$ pytest test_hello_pytest.py
@@ -552,8 +553,8 @@ If we run the coverage we get 97% with still missing lines 83 and 87-88. Lines 8
 
 Line 83 is for definition of a lose scenario where we tried 5 times and still did not assert the answer.
 
-`Line 83          print(f'Guessed {MAX_GUESSES} times, answer was {self._answer}')
-`
+Line 83: `         print(f'Guessed {MAX_GUESSES} times, answer was {self._answer}')`
+
 
 We are going to follow the same signature as above but we need more stamps and answer which is not in our all guesses.
 
@@ -785,3 +786,10 @@ test_fizzbuzz.py ................                                               
 ![alt text](pics/pic08.png)
 ![alt text](pics/pic09.png)
 ![alt text](pics/pic10.png)
+
+
+### Fixtures
+
+All You Need to Know to Start Using Fixtures in Your pytest Code
+
+https://pybit.es/pytest-fixtures.html
