@@ -38,17 +38,19 @@ def strip_vowels(text: str) -> (str, int):
        The str/int types in the function defintion above are part
        of Python's new type hinting:
        https://docs.python.org/3/library/typing.html"""
-    # count = 0
-    # for v in vowels:
-    #
-    #     text = text.lower().replace(v,'*')
-    #
-    # for v in text:
-    #     if v=='*':
-    #         count+=1
-    #
-    # return (text,count)
+    newtext = list(text)
+    count = 0
+    for i, letter in enumerate(newtext):
+        if letter.lower() in vowels:
+            count+=1
+            newtext[i]='*'
 
+    text = "".join(newtext)
+    return text,count
+
+    # once you get into regular expressions you can rewrite this with one line:
+    # import re
+    # return re.subn(f'[{vowels}]', '*', text, flags=re.I)
 
 
 if __name__ == '__main__':
