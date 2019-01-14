@@ -13,9 +13,11 @@ import pytest
 
 def test_get_workout_valid_case_insensitive_dict_lookups(arg,expected):
    mixed_case = arg[:3].lower() + arg[3:].upper()
+   count = 0
    for day in (arg,arg.upper(),arg.lower(), mixed_case):
+       count += 1
+       print('Assert '+str(count))
        assert get_workout_motd(day) == expected
-
 
 
 def test_get_workout_invalid_dict_lookups_raise_exception():
