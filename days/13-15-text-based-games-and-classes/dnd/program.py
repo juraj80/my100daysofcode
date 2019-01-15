@@ -1,4 +1,4 @@
-from actors import Creature,Wizard,Dragon
+from dnd.actors import Creature,Wizard,Dragon
 import random
 
 def print_header():
