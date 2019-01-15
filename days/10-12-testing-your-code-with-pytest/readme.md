@@ -361,7 +361,7 @@ def test_guess(inp):
     game = Game()
     ...
     # not a number ()
-    with pytest.raises(ValueError):
+       
         game.guess()
     # already guessed 12
     with pytest.raises(ValueError):
