@@ -5,30 +5,30 @@ class Roll:
 
 class Scissors(Roll):
     def can_defeat(self, other_roll):
-        if other_roll.name == 'Stone':
+        if other_roll.name == 'Rock':
             return 'win'
         elif other_roll.name == self.name:
-            return 'tie'
+            return 'draw'
         else:
             return 'loose'
 
 
 class Paper(Roll):
     def can_defeat(self, other_roll):
-        if other_roll.name == 'Stone':
+        if other_roll.name == 'Rock':
             return 'win'
         elif other_roll.name == self.name:
-            return 'tie'
+            return 'draw'
         else:
             return 'loose'
 
 
-class Stone(Roll):
+class Rock(Roll):
     def can_defeat(self, other_roll):
         if other_roll.name == 'Scissors':
             return 'win'
         elif other_roll.name == self.name:
-            return 'tie'
+            return 'draw'
         else:
             return 'loose'
 

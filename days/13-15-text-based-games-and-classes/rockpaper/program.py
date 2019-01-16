@@ -1,4 +1,4 @@
-from rolls import Scissors, Paper, Stone, Player
+from rolls import  Rock, Paper, Scissors, Player
 import random
 
 def main():
@@ -27,7 +27,7 @@ def get_players_name():
 def build_the_three_rolls():
     r1 = Scissors('Scissors')
     r2 = Paper('Paper')
-    r3 = Stone('Stone')
+    r3 = Rock('Rock')
     return [r1,r2,r3]
 
 def game_loop(p1,p2,rolls):
@@ -38,12 +38,12 @@ def game_loop(p1,p2,rolls):
     while count < 3:
         p2_roll = random.choice(rolls)
 
-        p1_roll = input("Choose [s]tone, [p]aper, or s[c]issors: ").lower()
-        if p1_roll == 's':
+        p1_roll = input("Choose [r]ock, [p]aper, or [s]cissors: ").lower()
+        if p1_roll == 'r':
             p1_roll = rolls[2]
         elif p1_roll == 'p':
             p1_roll = rolls[1]
-        elif p1_roll == 'c':
+        elif p1_roll == 's':
             p1_roll = rolls[0]
         else:
             print('Wrong input !!!')
@@ -64,18 +64,18 @@ def game_loop(p1,p2,rolls):
             winner = 'Computer'
             print(f'Computer wins round {count+1} and have {p2.points} points')
         else:
-            print('Tie')
-            count-=1
+            print("It's a Draw")
 
         count += 1
         print()
 
     # display winner for this round
-    if p1.points > p2.points:
+    if p1.points == 0 and p2.points == 0:
+        print('Game finished with the draw. ')
+    elif p1.points > p2.points:
         print(f'{p1.name} won the whole game with {p1.points} points!!!')
     else:
         print(f'Computer won the whole game with {p2.points} points!!!')
-
 
 
 if __name__ == '__main__':
