@@ -2,35 +2,46 @@ class Roll:
     def __init__(self, name):
         self.name = name
 
-
-class Scissors(Roll):
     def can_defeat(self, other_roll):
-        if other_roll.name == 'Rock':
-            return 'win'
-        elif other_roll.name == self.name:
-            return 'draw'
+        wins = {
+            'Rock':'Scissors',
+            'Scissors': 'Paper',
+            'Paper': 'Rock',
+        }
+        if wins[self.name] == other_roll.name:
+            return True
         else:
-            return 'loose'
+            return False
 
-
-class Paper(Roll):
-    def can_defeat(self, other_roll):
-        if other_roll.name == 'Rock':
-            return 'win'
-        elif other_roll.name == self.name:
-            return 'draw'
-        else:
-            return 'loose'
-
-
-class Rock(Roll):
-    def can_defeat(self, other_roll):
-        if other_roll.name == 'Scissors':
-            return 'win'
-        elif other_roll.name == self.name:
-            return 'draw'
-        else:
-            return 'loose'
+#
+# class Scissors(Roll):
+#     def can_defeat(self, other_roll):
+#         if other_roll.name == 'Rock':
+#             return 'win'
+#         elif other_roll.name == self.name:
+#             return 'draw'
+#         else:
+#             return 'loose'
+#
+#
+# class Paper(Roll):
+#     def can_defeat(self, other_roll):
+#         if other_roll.name == 'Rock':
+#             return 'win'
+#         elif other_roll.name == self.name:
+#             return 'draw'
+#         else:
+#             return 'loose'
+#
+#
+# class Rock(Roll):
+#     def can_defeat(self, other_roll):
+#         if other_roll.name == 'Scissors':
+#             return 'win'
+#         elif other_roll.name == self.name:
+#             return 'draw'
+#         else:
+#             return 'loose'
 
 
 class Player:
