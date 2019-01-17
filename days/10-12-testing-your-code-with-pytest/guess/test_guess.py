@@ -9,8 +9,7 @@ def test_get_random_number(m):
     m.return_value = 17 # here we give it a fixed return value
     assert get_random_number() == 17
 
-@patch("builtins.input", side_effect=[11, '12', 'Bob', 12, 5,
-                                      -1, 21, 7, None])
+@patch("builtins.input", side_effect=[11, '12', 'Bob', 12, 5,-1, 21, 7, None])
 def test_guess(inp):
     game = Game()
     # good
