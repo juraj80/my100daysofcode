@@ -55,13 +55,10 @@ def game_loop(p1,p2,rolls):
         print(f'{p1.name} throws {p1_roll.name}')
         print(f'Computer throws {p2_roll.name}')
 
-
         if p2_roll.name == p1_roll.name:
             print("It's a Tie. One more try!")
             continue
-
         # display throws
-
         print()
         outcome = p1_roll.can_defeat(p2_roll)
         # display winner for this round
