@@ -34,7 +34,7 @@ def get_player_roll():
         return Roll('Scissors')
     else:
         print('Wrong Input')
-        return get_player_roll()
+        return
 
 
 def build_the_three_rolls():
@@ -50,8 +50,10 @@ def game_loop(p1,p2,rolls):
 
     while count < 3:
         p2_roll = random.choice(rolls)
-
         p1_roll = get_player_roll()
+        if not p1_roll:
+            continue
+
         print(f'{p1.name} throws {p1_roll.name}')
         print(f'Computer throws {p2_roll.name}')
 

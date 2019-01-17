@@ -62,7 +62,7 @@ class Game:
     def num_guesses(self):
         return len(self._guesses)
 
-    def __call__(self):
+    def __call__(self): # enable to call the object game()
         """Entry point / game loop, use a loop break/continue,
            see the tests for the exact win/lose messaging"""
         while len(self._guesses) < MAX_GUESSES:
