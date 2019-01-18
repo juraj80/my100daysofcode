@@ -132,9 +132,6 @@ for i in gen:
 
 ## Use generators to build a sequence
 
-pprint. pprint ( object, stream=None, indent=1, width=80, depth=None, *, compact=False )
-Prints the formatted representation of object on stream, followed by a newline. If stream is None, sys.stdout is used. This may be used in the interactive interpreter instead of the print() function for inspecting values (you can even reassign print = pprint.pprint for use within a scope)
-
 ```
 options = 'red yellow blue white black green purple'.split()
 options
@@ -172,4 +169,92 @@ print(create_select_options_gen())
 list(create_select_options_gen())
 ['<option value=red>Red</option>', '<option value=yellow>Yellow</option>', '<option value=blue>Blue</option>', '<option value=white>White</option>', '<option value=black>Black</option>', '<option value=green>Green</option>', '<option value=purple>Purple</option>']
 
+```
+## List vs generator performance
+```
+import timeit
+from datetime import datetime
+import calendar
+
+# Example
+# mydata = 5
+# def f1(x):
+#     return x+1
+# print(timeit.timeit("f1(mydata)", setup = "from __main__ import f1, mydata", number=1))
+
+
+def timed(func):
+    t0 = datetime.now()
+
+    func()
+
+    dt = datetime.now() - t0
+    print("Time: {:,.3f} ms".format(dt.total_seconds() * 1000.0), flush=True)
+
+# list
+def leap_years_lst(n=1000000):
+    leap_years = []
+    for year in range(1, n+1):
+        if calendar.isleap(year):
+            leap_years.append(year)
+    return leap_years
+
+# generator
+def leap_years_gen(n=1000000):
+    for year in range(1, n+1):
+        if calendar.isleap(year):
+
+            yield year
+
+timed(leap_years_lst)
+print(timeit.timeit("leap_years_lst", setup = "from __main__ import leap_years_lst", number=1))
+
+timed(leap_years_gen)
+print(timeit.timeit("leap_years_gen", setup = "from __main__ import leap_years_gen", number=1))
+```
+### Concept: List Comprehension and Generators
+
+![alt text](pics/pic01.png)
+   
+![alt text](pics/pic02.png)
+
+ 
+### Examples
+```
+import random
+
+NAMES = ['arnold schwarzenegger', 'alec baldwin', 'bob belderbos',
+         'julian sequeira', 'sandra bullock', 'keanu reeves',
+         'julbob pybites', 'bob belderbos', 'julian sequeira',
+         'al pacino', 'brad pitt', 'matt damon', 'brad pitt']
+
+title_case =[name.title() for name in NAMES]
+print(title_case)
+
+def reverse_first_last_names(name):
+    first,last = name.split()
+    # ' '.join([last,first]) -- wait we have f-strings now (>= 3.6)
+    return f'{last} {first}'
+
+reversed = [reverse_first_last_names(name) for name in NAMES]
+
+print(reversed)
+
+
+def gen_pairs():
+    first_names = [name.split()[0].title() for name in NAMES]
+    while True:
+        first,second = None, None
+        while first == second:
+            first, second = random.sample(first_names,2)
+        yield f'{first} teams up with {second}'
+
+pairs = gen_pairs()
+for _ in range(10):
+    print(next(pairs))
+```
+Another way to get a slice of a generator is using `itertools.islice`:
+```
+first_ten = itertools.islice(pairs,10)
+list(first_ten)
 ```
