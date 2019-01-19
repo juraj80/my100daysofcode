@@ -86,7 +86,59 @@ cnt.most_common(5)
 [('dursley', 45), ('dumbledore', 35), ('said', 32), ('mr', 30), ('professor', 30)]
 ```
 
-### Generators - the basics
+## Dictionary comprehensions
+
+https://www.datacamp.com/community/tutorials/python-dictionary-comprehension
+
+This is the general template you can follow for dictionary comprehension in Python:
+
+`dict_variable = {key:value for (key,value) in dictonary.items()}
+`
+Dictionary comprehension is a powerful concept and can be used as:
+
+- alternative to for loops
+- alternative to lambda functions.
+
+However, not all for loop can be written as a dictionary comprehension but all dictionary comprehension can be written with a for loop.
+
+Lambda functions are a way of creating small anonymous functions. They are functions without a name. These functions are throw-away functions, which are only needed where they have been created. Lambda functions are mainly used in combination with the functions `filter()`, `map()` and `reduce()`.
+```
+# Initialize `fahrenheit` dictionary 
+fahrenheit = {'t1':-30, 't2':-20, 't3':-10, 't4':0}
+
+#Get the corresponding `celsius` values
+celsius = list(map(lambda x: (float(5)/9)*(x-32), fahrenheit.values()))
+
+#Create the `celsius` dictionary
+celsius_dict = dict(zip(fahrenheit.keys(), celsius))
+
+print(celsius_dict)
+```
+
+`{'t2': -28.88888888888889, 't3': -23.333333333333336, 't1': -34.44444444444444, 't4': -17.77777777777778}
+`
+Let's take a look at another situation, where you want to convert a dictionary of Fahrenheit temperatures into celsius.
+Let's break the code down: first, you need to define a mathematical formula that does the conversion from Fahrenheit to Celsius. In the code, this is done with the help of the lambda function. You then pass this function as an argument to the `map()` function which then applies the operation to every item in the fahrenheit.values() list.
+Remember the `values()` function? It returns a list containing the items stored in the dictionary.
+What you have now is a list containing the temperature value in celsius, but the solution requires it to be a dictionary. Python has a built-in function called `zip()` which goes over the elements of iterators and aggregates them. You can read more about the `zip()` function here. In the example above, the zip function aggregates the item from `fahrenheit.keys()` and the celsius list, giving a key-value pair that you can put together in a dictionary using the `dict` function, which is the desired result.
+Now, let's try to solve the same problem using dictionary comprehension:
+```
+# Initialize the `fahrenheit` dictionary 
+fahrenheit = {'t1': -30,'t2': -20,'t3': -10,'t4': 0}
+
+# Get the corresponding `celsius` values and create the new dictionary
+celsius = {k:(float(5)/9)*(v-32) for (k,v) in fahrenheit.items()}
+
+print(celsius_dict)
+```
+
+`{'t2': -28.88888888888889, 't3': -23.333333333333336, 't1': -34.44444444444444, 't4': -17.77777777777778}
+`
+
+
+## Generators - the basics
+
+
 ```
 def num_gen():
     for n in range(10):
@@ -212,14 +264,14 @@ print(timeit.timeit("leap_years_lst", setup = "from __main__ import leap_years_l
 timed(leap_years_gen)
 print(timeit.timeit("leap_years_gen", setup = "from __main__ import leap_years_gen", number=1))
 ```
-### Concept: List Comprehension and Generators
+## Concept: List Comprehension and Generators
 
 ![alt text](pics/pic01.png)
    
 ![alt text](pics/pic02.png)
 
  
-### Examples
+## Examples
 ```
 import random
 
@@ -269,3 +321,4 @@ import itertools
 for x in itertools.islice(c,10,20):
     print(x)
 ```
+
