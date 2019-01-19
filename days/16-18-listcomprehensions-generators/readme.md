@@ -257,4 +257,15 @@ Another way to get a slice of a generator is using `itertools.islice`:
 ```
 first_ten = itertools.islice(pairs,10)
 list(first_ten)
+
+
+def count(n):
+    while True:
+        yield n
+        n+=1
+        
+c = count(0)
+import itertools
+for x in itertools.islice(c,10,20):
+    print(x)
 ```

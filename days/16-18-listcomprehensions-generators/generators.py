@@ -21,10 +21,11 @@ print(reversed)
 def gen_pairs():
     first_names = [name.split()[0].title() for name in NAMES]
     while True:
-        first,second = None, None
+
+        first,second = None, None #None at the beginning of each while True iteration
         while first == second:
             first, second = random.sample(first_names,2)
-        yield f'{first} teams up with {second}'
+        yield f'{first} teams up with {second}' #yield at the end of each while True iteration
 
 pairs = gen_pairs()
 for _ in range(10):
