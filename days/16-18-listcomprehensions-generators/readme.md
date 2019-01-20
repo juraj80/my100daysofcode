@@ -137,6 +137,43 @@ print(celsius_dict)
 
 
 ## Generators - the basics
+What is a Generator?
+
+Well, there’s actually not much to it. A generator is just a function that generates values specifically when called with next(). Take this absolutely simple generator for example:
+```
+>>> def num_gen():
+...     yield 1
+...     yield 2
+...     yield 3
+... 
+>>> 
+>>> demo_gen = num_gen()
+>>> next(demo_gen)
+1
+>>> next(demo_gen)
+2
+>>> next(demo_gen)
+3
+>>> next(demo_gen)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+```
+As you can see, we have a function num_gen() which uses yield to return the numbers 1, 2 and 3.
+
+Normally you’d return these numbers via some sort of loop or with 3x print() functions which would print the numbers 1, 2 and 3 all at once.
+
+With a generator however, the numbers are only returned when called using the next() function. Here’s what the code does:
+
+We take num_gen() and assign it to a variable demo_gen to make this easier on us.
+
+We use the next() function on demo_gen to request the “next” iteration of the demo_gen function. This results in the first yield only being returned.
+
+Notice we then have to run next(demo_gen) two more times to see the next iteration in the code.
+
+Once we’ve exhausted all of the yields within num_gen() running next() again results in a StopIteration error.
+
+ _The StopIteration error appears because there are no more yield statements in the function. Calling next on the generator after this does not cause it to loop over and start again._
 
 
 ```
@@ -264,6 +301,21 @@ print(timeit.timeit("leap_years_lst", setup = "from __main__ import leap_years_l
 timed(leap_years_gen)
 print(timeit.timeit("leap_years_gen", setup = "from __main__ import leap_years_gen", number=1))
 ```
+## Generator Expressions
+
+- General syntax
+
+**(**_expression_ **for** i **in** s **if** _condition_**)**
+
+- What it means
+```
+for i in s:
+    if condition:
+        yield expression
+```
+
+
+
 ## Concept: List Comprehension and Generators
 
 ![alt text](pics/pic01.png)
