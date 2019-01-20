@@ -1,4 +1,4 @@
-from bites5 import (NAMES,dedup_and_title_case_names,sort_by_surname_desc,shortest_first_name)
+from bite5 import (NAMES,dedup_and_title_case_names,sort_by_surname_desc,shortest_first_name)
 
 
 def test_dedup_and_title_case_names():
