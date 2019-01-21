@@ -415,8 +415,9 @@ bar/
 A useful way to search the filesystem:
 ```
 from pathlib import Path
-   for filename in Path('/').rglob('*.py'):
-       print(filename)
+
+for filename in Path('/').rglob('*.py'):
+    print(filename)
 ```
 Guess what? It uses generators!
 ```
@@ -502,13 +503,14 @@ for x in up_and_down(3):
 Generate a sequence of lines that contain a given regular expression. 
 ```
 import re
-   def gen_grep(pat, lines):
-       patc = re.compile(pat)
-       return (line for line in lines if patc.search(line))
+def gen_grep(pat, lines):
+   patc = re.compile(pat)
+   return (line for line in lines if patc.search(line))
 ```
 Example:
 ```
-lognames = Path('/usr/www').rglob("access-log*") logfiles = gen_open(lognames)
+lognames = Path('/usr/www').rglob("access-log*") 
+logfiles = gen_open(lognames)
 loglines = gen_cat(logfiles)
 patlines = gen_grep(pat, loglines)
 ```
@@ -516,11 +518,13 @@ patlines = gen_grep(pat, loglines)
 Find out how many bytes transferred for a specific pattern in a whole directory of logs
 
 ```
-pat = r"somepattern" logdir = "/some/dir/"
-   filenames  = Path(logdir).rglob("access-log*")
-logfiles
-loglines
-patlines
+pat = r"somepattern" 
+logdir = "/some/dir/"
+
+filenames  = Path(logdir).rglob("access-log*")
+logfiles   = gen_open(filenames)
+loglines   = gen_cat(logfiles)
+patlines   = gen_grep(pat,loglines)
 bytecolumn = (line.rsplit(None,1)[1] for line in patlines)
 bytes_sent = (int(x) for x in bytecolumn if x != '-')
 print("Total", sum(bytes_sent))
