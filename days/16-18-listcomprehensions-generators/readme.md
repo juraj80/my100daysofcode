@@ -314,7 +314,23 @@ for i in s:
         yield expression
 ```
 
+The parens on a generator expression can dropped if used as a single function argument
 
+
+`sum(x*x for x in s)
+`
+
+## Generators as a Pipeline
+
+The glue that holds the pipeline together is the iteration that occurs in each step
+```
+with open("access-log") as wwwlog:
+    bytecolumn = (line.rsplit(None,1)[1] for line in wwwlog) 
+    bytes_sent = (int(x) for x in bytecolumn if x != '-') 
+    print("Total", sum(bytes_sent))
+```
+ The calculation is being driven by the last step.The **sum()** function is consuming values being pulled through the pipeline
+ (via **__next__()** calls)
 
 ## Concept: List Comprehension and Generators
 
@@ -323,7 +339,7 @@ for i in s:
 ![alt text](pics/pic02.png)
 
  
-## Examples
+## Example for a list comprehension
 ```
 import random
 
@@ -343,8 +359,11 @@ def reverse_first_last_names(name):
 reversed = [reverse_first_last_names(name) for name in NAMES]
 
 print(reversed)
+```
 
+## Example for a simple generator
 
+```
 def gen_pairs():
     first_names = [name.split()[0].title() for name in NAMES]
     while True:
@@ -374,3 +393,135 @@ for x in itertools.islice(c,10,20):
     print(x)
 ```
 
+## Example for a generator pipeline
+
+You have hundreds of web server logs scattered across various directories. In additional, some of the logs are compressed. 
+Design a program so that you can easily read all of these logs.
+
+```
+foo/
+ access-log-012007.gz
+ access-log-022007.gz
+    access-log-032007.gz
+    ...
+    access-log-012008
+bar/
+    access-log-092007.bz2
+    ...
+    access-log-022008
+```
+1. Search the filesystem with **Path.rglob()**
+
+A useful way to search the filesystem:
+```
+from pathlib import Path
+   for filename in Path('/').rglob('*.py'):
+       print(filename)
+```
+Guess what? It uses generators!
+```
+>>> from pathlib import Path
+>>> Path('/').rglob('*.py')
+<generator object Path.rglob at 0x10e3e0b88> 
+>>>
+```
+So, we could build processing pipelines from it.
+
+2. A File Opener
+
+Open a sequence of paths:
+```
+import gzip, bz2
+ def gen_open(paths):
+     for path in paths:
+         if path.suffix == '.gz':
+              yield gzip.open(path, 'rt')
+         elif path.suffix == '.bz2':
+              yield bz2.open(path, 'rt')
+         else:
+              yield open(path, 'rt')
+```
+This is interesting...it takes a sequence of paths as input and yields a sequence of open file objects.
+
+3. cat
+
+Concatenate items from one or more source into a single sequence of items
+```
+def gen_cat(sources):
+    for src in sources:
+        for item in src:
+            yield item
+```            
+
+OR
+
+```
+def gen_cat(sources):
+    for src in sources:
+        yield from src
+```
+
+Example:
+```
+lognames = Path('/usr/www').rglob("access-log*") # generate a generator
+logfiles = gen_open(lognames)
+loglines = gen_cat(logfiles)
+```
+## yield from
+
+'yield from' can be used to delegate iteration:
+```
+def countdown(n):
+    while n > 0:
+        yield n
+        n -= 1
+        
+def countup(stop):
+    n = 1
+    while n < stop:
+        yield n
+        n += 1
+        
+def up_and_down(n):
+    yield from countup(n)
+    yield from countdown(n)
+    
+for x in up_and_down(3):
+    print(x)
+    
+1
+2
+3
+2
+1
+    
+``` 
+
+4. grep
+
+Generate a sequence of lines that contain a given regular expression. 
+```
+import re
+   def gen_grep(pat, lines):
+       patc = re.compile(pat)
+       return (line for line in lines if patc.search(line))
+```
+Example:
+```
+lognames = Path('/usr/www').rglob("access-log*") logfiles = gen_open(lognames)
+loglines = gen_cat(logfiles)
+patlines = gen_grep(pat, loglines)
+```
+
+Find out how many bytes transferred for a specific pattern in a whole directory of logs
+
+```
+pat = r"somepattern" logdir = "/some/dir/"
+   filenames  = Path(logdir).rglob("access-log*")
+logfiles
+loglines
+patlines
+bytecolumn = (line.rsplit(None,1)[1] for line in patlines)
+bytes_sent = (int(x) for x in bytecolumn if x != '-')
+print("Total", sum(bytes_sent))
+```
