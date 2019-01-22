@@ -32,10 +32,11 @@ def gen_grep(lines, pattern):
 def gen_count(lines):
     return Counter(lines).most_common(5)
 
+
 if __name__ == "__main__":
     # call the generators, passing one to the other
     pattern = r'^import'
-    path = "/Users/jurajklucka/request-master/talkpython-projects/PyBitesCodeChallenges"
+    path = "/"
 
     files = gen_files(path)
     lines = gen_lines(files)
@@ -43,6 +44,8 @@ if __name__ == "__main__":
     import_string = (line.split()[1] for line in patlines)
     for key, value in gen_count(import_string):
         print(value, key)
+
+
 
     # sorted_by_value = sorted(gen.items(), key = lambda kv:kv[1], reverse = True)
     # for key, value in sorted_by_value:
