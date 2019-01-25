@@ -50,8 +50,8 @@ import time
 symbols = itertools.cycle('-\|/')
 
 while True:
-    sys.stdout.write('\r' + next(symbols))
-    sys.stdout.flush()
+    sys.stdout.write('\r' + next(symbols))  # '\r' - write the stdout to the same line not newline 
+    sys.stdout.flush() # to force stdout to display it on the screen
     time.sleep(0.1)
 ```
 ### Itertools - Product
@@ -128,3 +128,12 @@ Without repetition our choices get reduced each time.
 [('mike', 'bob'), ('mike', 'julian'), ('bob', 'mike'), ('bob', 'julian'), ('julian', 'mike'), ('julian', 'bob')]
 >>> 
 ```
+
+### Concepts
+
+![alt=text](pics/pic01.png)
+
+![alt=text](pics/pic02.png)
+
+![alt=text](pics/pic03.png)
+
