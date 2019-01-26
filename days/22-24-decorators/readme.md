@@ -328,9 +328,31 @@ generate_report('October', 'November', 'December', **parameters)
     (actual function) Done, report links ...
     == generate_report took 2 seconds to complete
     
-    
-    
 
+### Passing argument to decorator
+```python
+>>> def multiply(multiplier=2):
+...     def decorator(func):
+...         def wrapper(*args):
+...             print('Before...')
+...             print('Calculating...')
+...             result = func(*args)*multiplier
+...             print('After...')
+...             return result
+...         return wrapper
+...     return decorator
+... 
+>>> @multiply(3)
+... def addnums(num1,num2):
+...     return num1+num2
+... 
+>>> addnums(3,5)
+Before...
+Calculating...
+After...
+24
+```
+    
 ### When to use?
 
 If you want to add common behavior to multiple objects think about abstracting it away using decorators. It will make your code more DRY and encapsulated. It is a nice way to abstract away functionality not directly related to the function's main goal. Your team will thank you for having more reusable code.
