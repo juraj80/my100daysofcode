@@ -9,6 +9,9 @@ Decorators are a sometimes overlooked and more advanced feature. They support a 
 
 > A decorator's intent is to attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality. - [Design Patterns book](https://www.amazon.com/dp/0201633612/?tag=pyb0f-20)
 
+[Dan Bader: Python Decorators: A Step-By-Step Introduction ](https://dbader.org/blog/python-decorators)
+
+[http://dev.prodigi.us](http://dev.prodigi.us/post/python-decorators-simple-example/)
 
 ```python
 from functools import wraps
