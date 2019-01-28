@@ -181,7 +181,7 @@ def timeit(func):
         start = time.time()
         
         # call the decorated function
-        func(*args, **kwargs)
+        func(*args, **kwargs) 
         
         # after calling the decorated function
         end = time.time()
