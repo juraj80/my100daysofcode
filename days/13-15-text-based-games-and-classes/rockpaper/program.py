@@ -20,7 +20,8 @@ def print_header():
     print('-------------------------------')
 
 
-def get_players_name():
+def get_players_name(): # Value error handling missing
+
     name = input('Type your name here, please: ')
     return name
 
