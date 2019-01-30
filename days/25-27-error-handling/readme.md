@@ -301,6 +301,12 @@ class MyException(Exception):
 raise MyException("An exception doesn't always prove the rule!")
 ```
 
+```
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+MyException: An exception doesn't always prove the rule!
+```
+
 ### try - finally
 
 "finally" clause is always executed regardless if an exception occurred in a try block or not. 
