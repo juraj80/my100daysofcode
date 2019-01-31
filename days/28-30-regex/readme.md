@@ -3,6 +3,15 @@
 
 > Some people, when confronted with a problem, think, "I know, I'll use regular expressions." Now they have two problems. - Jamie Zawinski
 
+
+https://docs.python.org/3.6/howto/regex.html
+https://docs.python.org/3.6/library/re.html
+
+Write some regexes interactively using an online tool like regex101.
+
+https://regex101.com/#python
+
+
 ## First day: quick overview
 
 This first day we will explore the basics of the `re` (standard libary) module so you can start adding this powerful skill to your Python toolkit.
@@ -71,6 +80,9 @@ But what if you need to do some more tricky things, say matching any #(int)DaysO
 
 The main methods you want to know about are `search` and `match`, former matches a substring, latter matches the string from beginning to end. I always embed my regex in `r''` to avoid having to escape special characters like \d (digit), \w (char), \s (space), \S (non-space), etc (I think \\\d and \\\s clutters up the regex)
 
+Note: 
+ - match() checks at the start of a string and returns None if nothing is found.
+ - search() moves up the string, looking for the first occurrence of the given pattern, and returns None only if the pattern occurs nowhere in the string.
 
 ```python
 text = 'Awesome, I am doing the #100DaysOfCode challenge'
@@ -130,6 +142,38 @@ m.groups()[0]
 '#200DaysOfCode'
 ```
 
+Note:
+
+- () capturing group - the regex inside the parenthesis must be matched and the match create a capturing group
+- (?:) non capturing group - the regex inside the parenthesis must be matched but doesn't not create the capturing group
+
+####Non-capturing parenthesis
+
+Use (?: ) to not capture matching contents, for example lets get all links and hashtags out of the tweet below. I need the outer parenthesis for capturing and the inner parenthesis to say '# or http', latter should not capture anything:
+```python
+tweet = 'New PyBites article: Module of the Week - Requests-cache for Repeated API Calls - http://pybit.es/requests-cache.html … #python #APIs'
+re.findall(r'((?:#|http)\S+)',tweet)
+```
+```
+['http://pybit.es/requests-cache.html', '#python', '#APIs']
+```
+When I don't use (?: ) it goes wrong:
+
+```python
+re.findall(r'((#|http)\S+)',tweet)
+```
+```
+[('http://pybit.es/requests-cache.html', 'http'), ('#python', '#'), ('#APIs', '#')]
+```
+The required result without non-capturing parenthesis we would get if we use also this regex:
+
+```python
+re.findall(r'#\S+|http\S+',tweet)
+```
+```
+['http://pybit.es/requests-cache.html', '#python', '#APIs']
+```
+
 ### `findall` is your friend
 
 What if you want to match multiple instances of a pattern? `re` has the convenient `findall` method I use a lot. For example in [our 100 Days Of Code](https://github.com/pybites/100DaysOfCode/blob/master/LOG.md) we used the `re` module for the following days - how would I extract the days from this string?
@@ -184,6 +228,33 @@ cnt.most_common(5)
 ```
 [('Lorem', 4), ('Ipsum', 4), ('It', 2), ('Letraset', 1), ('Aldus', 1)]
 ```
+### Regexes are greedy!
+
+Take this modified html:
+```python
+html = """<div><p>Today a quick article on a nice caching module when working with APIs.</p><p>Read more ...</p></div>"""
+```
+Imagine we want to match the first paragraph:
+
+```python
+m = re.search('<p>.*</p>', html)
+m.group()
+```
+Oops, it matched too much:
+```
+'<p>Today a quick article on a nice caching module when working with APIs.</p><p>Read more ...</p>'
+
+```
+You can prevent this default greediness by using the ? after the repeating metacharacter (*, +, etc) which makes it match as little text as possible:
+
+```python
+m = re.search('<p>.*?</p>', html)
+m.group()
+```
+```
+'<p>Today a quick article on a nice caching module when working with APIs.</p>'
+```
+
 
 ### Compiling regexes
 
@@ -274,13 +345,21 @@ text = '''Awesome, I am doing #100DaysOfCode, #200DaysOfDjango and of course #36
 # I want all challenges to be 100 days, I need a break!
 text.replace('200', '100').replace('365', '100')
 ```
+```
+'Awesome, I am doing #100DaysOfCode, #100DaysOfDjango and of course #100DaysOfPyBites'
+```
+
 
 `re.sub` makes this easy:
 
 
 ```python
-re.sub(r'\d+', '100', text)
+re.sub(r'\d+', '30', text)
 ```
+```
+'Awesome, I am doing #30DaysOfCode, #30DaysOfDjango and of course #30DaysOfPyBites'
+```
+
 
 Or what if I want to change all the #nDaysOf... to #nDaysOfPyton? You can use `re.sub` for this. Note how I use the capturing parenthesis to port over the matching part of the string to the replacement (2nd argument) where I use `\1` to reference it:
 
@@ -288,6 +367,11 @@ Or what if I want to change all the #nDaysOf... to #nDaysOfPyton? You can use `r
 ```python
 re.sub(r'(#\d+DaysOf)\w+', r'\1Python', text)
 ```
+
+```
+'Awesome, I am doing #100DaysOfPython, #200DaysOfPython and of course #365DaysOfPython'
+```
+
 
 And that's a wrap. I only showed you some of the common `re` features I use day-to-day, but there is much more. I hope you got a taste for writing regexes in Python.
 
