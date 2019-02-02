@@ -299,3 +299,37 @@ So it really tells you what part of our application is talking to you on this pa
 
 ### File logging
 
+After all this we have this almost unreadable log goo mixed in with our standard user input/output. It's nice that we can see what's going on,
+but it's really not helpful for us here. Let's change this in our program.py and we init the logging, instead of passing nothing, we gonna pass in
+a file name and that's going to go to the timed rotating file handler rather than to the standard out.
+
+```python
+
+if __name__ == '__main__':
+    init_logging('movie-app.log')
+    main()
+
+```
+So let's run it again. Now it's back to the way it was before in terms of interactions. So there is none of that mess around as you can see.
+
+```
+Keyword of title search: Action
+There are 8 movies found.
+Last Action Hero with code tt0107362 has score 6.2
+Looney Tunes: Back in Action with code tt0318155 has score 5.7
+A Civil Action with code tt0120633 has score 6.5
+Chain Reaction with code tt0115857 has score 5.6
+Laws of Attraction with code tt0323033 has score 5.9
+Fatal Attraction with code tt0093010 has score 6.9
+Action Jackson with code tt0094612 has score 5.2
+The Rules of Attraction with code tt0292644 has score 6.7
+```
+
+That's great and notice over you files we have now a new log file: movie-app-2019....log. Inside are exactly the same messages that we saw in our
+terminal.
+
+### Concepts
+
+![alt=text](pics/pic01.png)
+
+![alt=text](pics/pic02.png)
