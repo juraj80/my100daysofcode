@@ -1,7 +1,6 @@
 import api
 import requests.exceptions
 
-
 def main():
     keyword = input('Keyword of title search: ')
     try:

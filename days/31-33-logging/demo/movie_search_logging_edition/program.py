@@ -36,7 +36,7 @@ def init_logging(filename: str = None):
     level = logbook.TRACE
 
     if filename:
-        logbook.TimedRotatingFileHandler(filename, level=level).push_application()
+        logbook.TimedRotatingFileHandler(filename, level=level).push_application() # default date format
     else:
         logbook.StreamHandler(sys.stdout, level=level).push_application()
 
