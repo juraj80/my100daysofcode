@@ -38,7 +38,7 @@ Once you've got your app logging (either to the console or a file) and saving wh
 
 There are two steps in configuring logging:
 
-One, we have to globally configure how we want to log things. 
+First, we have to globally configure how we want to log things. 
 Do we want our log messages to go to just standard out, so the terminal or console?
 Do we want the to go to a file, if it's a file do you want that file based on a date and roll as the days change, or do you want that to just be one big file?
 Or do you want to send that somewhere crazy like email or desktop notifications.
@@ -111,7 +111,7 @@ app_log = logbook.Logger('API')
 
 ```
 
-There is a super tricky balance between too much logging code getting into your application and making it hard to read being to verbose and
+There is a super tricky balance between too much logging code getting into your application and making it hard to read being too verbose and
 capturing what you need. It's a little bit hard to find the right balance.
 
 Let's deal with program.py and the error cases first.
@@ -140,6 +140,7 @@ So it's harder to read but we will have a record of this, so that's pretty cool.
 
 The first two exceptions we anticipate, its a standard input error stuff, but the last exception we don't except. We have no idea what can be wrong, 
 we just know that something goes wrong. We could return
+
 ```python
     except Exception as x:
         msg = "Oh that didn't work!: {}".format(x)
