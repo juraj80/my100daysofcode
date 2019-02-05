@@ -16,12 +16,12 @@ Record = collections.namedtuple(
 
 def init():
     base_folder = os.path.dirname(__file__)
-    filename = os.path.join(base_folder, 'data', 'seattle.csv')
+    filename = os.path.join(base_folder, 'data', 'seattle.csv') # platform / location independent path
 
     with open(filename, 'r', encoding='utf-8') as fin:
         reader = csv.DictReader(fin)
 
-        data.clear()
+        data.clear() # to reset the data to load the new data
         for row in reader:
             record = parse_row(row)
             data.append(record)
@@ -42,14 +42,14 @@ def parse_row(row):
     row['record_precipitation'] = float(row['record_precipitation'])
 
     record = Record(
-        **row
+        **row     # variables in namedtuple must match variables in row
     )
 
     return record
 
 
 def hot_days() -> List[Record]:
-    return sorted(data, key=lambda r: -r.actual_max_temp)
+    return sorted(data, key=lambda r: -r.actual_max_temp # \-r means same as reversed=True
 
 
 def cold_days() -> List[Record]:

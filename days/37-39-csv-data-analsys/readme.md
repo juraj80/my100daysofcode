@@ -1,3 +1,12 @@
+### Using CSV Data
+
+![alt text](pics/pic01.png)
+
+![alt text](pics/pic02.png)
+
+![alt text](pics/pic03.png)
+
+
 # Days 37 to 39 Analyzing CSV Data
 
 Are you ready to be a data-driven investigative journalist and put your Python and CSV parsing skills to work? That's your job for the next three days.
@@ -62,3 +71,7 @@ Be sure to share your last couple of days work on Twitter or Facebook. Use the h
 Here are [some examples](https://twitter.com/search?q=%23100DaysOfCode) to inspire you. Consider including [@talkpython](https://twitter.com/talkpython) and [@pybites](https://twitter.com/pybites) in your tweets.
 
 *See a mistake in these instructions? Please [submit a new issue](https://github.com/talkpython/100daysofcode-with-python-course/issues) or fix it and [submit a PR](https://github.com/talkpython/100daysofcode-with-python-course/pulls).*
+
+
+
+
