@@ -49,7 +49,7 @@ def parse_row(row):
 
 
 def hot_days() -> List[Record]:
-    return sorted(data, key=lambda r: -r.actual_max_temp # \-r means same as reversed=True
+    return sorted(data, key=lambda r: -r.actual_max_temp) # \-r means same as reversed=True
 
 
 def cold_days() -> List[Record]:
