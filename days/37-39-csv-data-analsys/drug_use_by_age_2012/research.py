@@ -1,6 +1,8 @@
 import csv
 import os
 from collections import namedtuple
+from typing import List
+
 
 data = []
 
@@ -73,3 +75,5 @@ def parse_row(row):
     return record
 
 
+def highest_marijuana_use() -> List[Record]:
+    return sorted(data, key=lambda r: r.marijuana_use,reverse=True)
