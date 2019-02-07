@@ -3,6 +3,9 @@ import os
 from collections import namedtuple
 from typing import List
 
+import logbook
+
+research_log = logbook.Logger('Research')
 
 data = []
 
@@ -18,6 +21,7 @@ def init():
     filename = os.path.join(base_folder,'data','drug-use-by-age.csv')
 
 
+
     with open(filename,'r',encoding='utf-8') as fin:
         reader = csv.DictReader(fin)
 
@@ -28,7 +32,8 @@ def init():
                     row[key] = 0
             record = parse_row(row)
             data.append(record)
-        print(data[:5])
+
+    research_log.trace(f'Loading a CSV file {filename} and parsing of data successful')
 
 def parse_row(row):
     for value in row.values():
