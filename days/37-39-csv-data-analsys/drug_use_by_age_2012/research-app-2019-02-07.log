@@ -1,0 +1,5 @@
+[2019-02-07 20:25:50.817460] NOTICE: Startup: Logging initialized, level: 9, mode: file mode: research-app.log
+[2019-02-07 20:25:50.818487] TRACE: Research: Loading a CSV file /Users/jurajklucka/PycharmProjects/100daysOfCode/days/37-39-csv-data-analsys/drug_use_by_age_2012/data/drug-use-by-age.csv and parsing of data successful
+[2019-02-07 20:25:50.818661] TRACE: App: QUERY: Highest Percentage of those in a age group who used alcohol in the past 12 months
+[2019-02-07 20:25:50.818799] TRACE: App: QUERY:Highest Percentage of those in a age group who used marijuana in the past 12 months
+[2019-02-07 20:25:50.818930] TRACE: App: QUERY:Highest Percentage of those in a age group who used cocaine in the past 12 months
