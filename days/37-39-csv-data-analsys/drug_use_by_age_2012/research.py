@@ -74,6 +74,12 @@ def parse_row(row):
 
     return record
 
+def highest_alcohol_use() -> List[Record]:
+    return sorted(data, key=lambda r: r.alcohol_use, reverse=True)
+
 
 def highest_marijuana_use() -> List[Record]:
     return sorted(data, key=lambda r: r.marijuana_use,reverse=True)
+
+def highest_cocaine_use() -> List[Record]:
+    return sorted(data, key=lambda r: r.cocaine_use, reverse=True)

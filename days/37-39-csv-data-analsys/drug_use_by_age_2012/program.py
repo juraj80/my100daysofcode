@@ -6,9 +6,19 @@ def main():
     research.init()
 
     print("Highest Percentage of those in a age group who used marijuana in the past 12 months")
+    print()
     data = research.highest_marijuana_use()
     for idx, r in enumerate(data[:5],1):
-        print(f'{idx}. % of age group: {r.age} who used marijuana in the past 12 months: {r.marijuana_use} %')
+        print(f'{idx}. {r.marijuana_use} % of age group: {r.age} years used marijuana {int(r.marijuana_frequency)} number of times (median)')
+    print()
+    print("Highest Percentage of those in a age group who used cocaine in the past 12 months")
+    print()
+    data = research.highest_cocaine_use()
+    for idx, r in enumerate(data[:5],1):
+        print(f'{idx}. {r.cocaine_use} % of age group: {r.age} years used cocaine {int(r.cocaine_frequency)} number of times (median)')
+
+
+
 
 
 
