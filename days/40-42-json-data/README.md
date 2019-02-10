@@ -47,3 +47,10 @@ Here are [some examples](https://twitter.com/search?q=%23100DaysOfCode) to inspi
 ![alt text](pics/pic02.png)
 
 ![alt text](pics/pic03.png)
+
+
+Difference between:
+
+json.loads -> returns an object from a string representing a json object
+
+json.dumps -> return a string from an object
