@@ -51,6 +51,6 @@ Here are [some examples](https://twitter.com/search?q=%23100DaysOfCode) to inspi
 
 Difference between:
 
-json.loads -> returns an object from a string representing a json object
+json.loads -> returns a dictionary from a string representing a json object
 
 json.dumps -> return a string from an object
