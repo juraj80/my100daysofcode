@@ -1,3 +1,4 @@
+import webbrowser
 from typing import List
 
 import requests
@@ -21,3 +22,9 @@ def get_results_from_api(keyword: str) -> List[Episode]:
 
     return episodes
 
+def display_url_from_episode(number, episodes):
+    for item in episodes:
+        if item.id == number:
+            print(item.url)
+            url = 'https://talkpython.fm{}'.format(item.url)
+            webbrowser.open(url, new=2)
