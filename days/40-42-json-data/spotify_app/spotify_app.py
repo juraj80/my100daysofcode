@@ -4,11 +4,10 @@ import json
 import spotipy
 import spotipy.util as util
 import webbrowser
-from json.decoder import  JSONDecodeError
 
 client_id = 'c5c5fe880ac24a6593550a9c147aaaa7'
-client_secret = '17b6bca8787e40919f00438f2a4144b6'
-# redirect_uri = 'http://google.com'
+client_secret = '3bc37e3c4ad14c08b1c24e5ab7f6e04a'
+redirect_uri = 'http://google.com'
 
 # Get the username from terminal
 username = sys.argv[1]
@@ -18,31 +17,31 @@ scope = 'user-read-private user-read-playback-state user-modify-playback-state'
 
 # Erase cache and prompt for user permission
 try:
-    token = util.prompt_for_user_token(username=username, scope=scope, client_id=client_id, client_secret=client_secret,
-                                       redirect_uri='http://google.com')
+    token = util.prompt_for_user_token(username, scope, client_id, client_secret,
+                                       redirect_uri)
 except:
  #   raise ValueError("Invalid token")
     os.remove(f'.cache-{username}')
-    token = util.prompt_for_user_token(username=username, scope=scope, client_id=client_id, client_secret=client_secret,
-                                       redirect_uri='http://google.com')
+    token = util.prompt_for_user_token(username, scope, client_id, client_secret,
+                                       redirect_uri)
 
 # Create our spotifyObject
 spotifyObject = spotipy.Spotify(auth=token)
 
 # Get current device
 devices = spotifyObject.devices()
-print(json.dumps(devices, sort_keys=True, indent=4))
+# print(json.dumps(devices, sort_keys=True, indent=4))
 deviceID = devices['devices'][0]['id']
 
 # Current track information
 track = spotifyObject.current_user_playing_track()
-print(json.dumps(track, sort_keys=True, indent=4))
+# print(json.dumps(track, sort_keys=True, indent=4))
 print()
 artist = track['item']['artists'][0]['name']
 track = track['item']['name']
 
 if artist != "":
-    print("Currently playing {} - {}".format(artist,track))
+    print("Currently playing {} - {}".format(artist, track))
 
 
 # User information
