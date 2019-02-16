@@ -1,6 +1,10 @@
 import api
 import re
 
+import cProfile
+profiler = cProfile.Profile()
+profiler.disable()
+
 
 chars = {'&#8222;': '"',
          '&#8220;': '"',
@@ -22,5 +26,8 @@ def parse_mpm(mpm_json):
         print(r)
 
 if __name__ == '__main__':
+    profiler.enable()
     results = api.get_results_from_api()
     print(parse_mpm(results))
+    profiler.disable()
+    profiler.print_stats(sort='cumtime')
