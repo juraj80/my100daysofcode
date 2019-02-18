@@ -1,0 +1,294 @@
+  <?xml version="1.0" encoding="UTF-8" ?><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:cc="http://web.resource.org/cc/" xmlns:steam="http://www.steampowered.com" xmlns="http://purl.org/rss/1.0/">
+	<channel rdf:about="http://www.steampowered.com">
+		<title>Steam RSS News Feed</title> 
+		<link>http://www.steampowered.com/</link> 
+		<description>All Steam news, all the time!</description> 
+		<language>en</language> 
+				<pubDate>Fri, 15 Feb 2019 16:05:00 -0800</pubDate>
+		<generator>http://www.steampowered.com/</generator> 
+		<items>
+			<rdf:Seq>
+							<rdf:li rdf:resource="https://store.steampowered.com/news/48424/" />
+							<rdf:li rdf:resource="https://store.steampowered.com/news/48311/" />
+							<rdf:li rdf:resource="https://store.steampowered.com/news/48408/" />
+							<rdf:li rdf:resource="https://store.steampowered.com/news/48380/" />
+							<rdf:li rdf:resource="https://store.steampowered.com/news/48304/" />
+							<rdf:li rdf:resource="https://store.steampowered.com/news/48340/" />
+							<rdf:li rdf:resource="https://store.steampowered.com/news/48327/" />
+							<rdf:li rdf:resource="https://store.steampowered.com/news/48363/" />
+							<rdf:li rdf:resource="https://store.steampowered.com/news/48372/" />
+							<rdf:li rdf:resource="https://store.steampowered.com/news/48341/" />
+							<rdf:li rdf:resource="https://store.steampowered.com/news/48310/" />
+							<rdf:li rdf:resource="https://store.steampowered.com/news/48323/" />
+							<rdf:li rdf:resource="https://store.steampowered.com/news/48277/" />
+							<rdf:li rdf:resource="https://store.steampowered.com/news/48301/" />
+							<rdf:li rdf:resource="https://store.steampowered.com/news/48300/" />
+							<rdf:li rdf:resource="https://store.steampowered.com/news/48286/" />
+							<rdf:li rdf:resource="https://store.steampowered.com/news/48275/" />
+							<rdf:li rdf:resource="https://store.steampowered.com/news/48097/" />
+							<rdf:li rdf:resource="https://store.steampowered.com/news/48099/" />
+							<rdf:li rdf:resource="https://store.steampowered.com/news/48091/" />
+						</rdf:Seq>
+		</items>
+	</channel>
+					<item rdf:about="https://store.steampowered.com/news/48424/">
+			<title><![CDATA[Dota 2 Update - February 15th, 2019]]></title>
+			<link><![CDATA[https://store.steampowered.com/news/48424/]]></link>
+			<guid isPermaLink="true"><![CDATA[https://store.steampowered.com/news/48424/]]></guid>
+			<comments>https://steamcommunity.com//discussions/</comments>
+			<pubDate>Fri, 15 Feb 2019 16:05:00 -0800</pubDate>
+			<author>Valve</author>
+			<category>Valve news update</category>
+			<dc:subject>Valve news update</dc:subject>
+			<dc:creator>Valve</dc:creator>
+			<dc:date>2019-02-15T16:05:00-0800</dc:date>
+						<content:encoded><![CDATA[Removed Flowing Entropy from the Treasure of the Amaranth and instead included Enduring Solitude. Including the Flowing Entropy set was an oversight - Collector's Cache sets are intended to remain exclusive.]]></content:encoded>
+					</item>
+					<item rdf:about="https://store.steampowered.com/news/48311/">
+			<title><![CDATA[Daily Deal - Absolver, 75% Off]]></title>
+			<link><![CDATA[https://store.steampowered.com/news/48311/]]></link>
+			<guid isPermaLink="true"><![CDATA[https://store.steampowered.com/news/48311/]]></guid>
+			<comments>https://steamcommunity.com//discussions/</comments>
+			<pubDate>Fri, 15 Feb 2019 10:10:00 -0800</pubDate>
+			<author>Valve</author>
+			<category>Valve news update</category>
+			<dc:subject>Valve news update</dc:subject>
+			<dc:creator>Valve</dc:creator>
+			<dc:date>2019-02-15T10:10:00-0800</dc:date>
+						<content:encoded><![CDATA[Today's Deal: Save 75% on <a href='http://store.steampowered.com/app/473690/'>Absolver</a>!*<br><br>Look for the deals each day on the front page of Steam.  Or follow us on <a href='http://twitter.com/steam_games'>twitter</a> or <a href='http://www.facebook.com/Steam'>Facebook</a> for instant notifications wherever you are!<br><br>*Offer ends Sunday at 10AM Pacific Time<br><a href="http://store.steampowered.com/app/473690/"><img src="https://steamcdn-a.akamaihd.net/steam/apps/473690/capsule_467x181.jpg" style=" float: left; margin-right: 12px; height: 181px; width: 467px;"></a>]]></content:encoded>
+					</item>
+					<item rdf:about="https://store.steampowered.com/news/48408/">
+			<title><![CDATA[Now Available on Steam - Far Cry® New Dawn]]></title>
+			<link><![CDATA[https://store.steampowered.com/news/48408/]]></link>
+			<guid isPermaLink="true"><![CDATA[https://store.steampowered.com/news/48408/]]></guid>
+			<comments>https://steamcommunity.com//discussions/</comments>
+			<pubDate>Fri, 15 Feb 2019 09:12:00 -0800</pubDate>
+			<author>Valve</author>
+			<category>Valve news update</category>
+			<dc:subject>Valve news update</dc:subject>
+			<dc:creator>Valve</dc:creator>
+			<dc:date>2019-02-15T09:12:00-0800</dc:date>
+						<content:encoded><![CDATA[<a href='http://store.steampowered.com/app/939960/'>Far Cry&reg; New Dawn</a> is Now Available on Steam!<br><br>Dive into a transformed vibrant post-apocalyptic Hope County, Montana, 17 years after a global nuclear catastrophe.<br /><br>Lead the fight against the Highwaymen, as they seek to take over the last remaining resources.<br><br><a href="http://store.steampowered.com/app/939960/"><img src="https://steamcdn-a.akamaihd.net/steam/apps/939960/capsule_467x181.jpg" style=" float: left; margin-right: 12px; height: 181px; width: 467px;"></a>]]></content:encoded>
+					</item>
+					<item rdf:about="https://store.steampowered.com/news/48380/">
+			<title><![CDATA[Left 4 Dead - Update]]></title>
+			<link><![CDATA[https://store.steampowered.com/news/48380/]]></link>
+			<guid isPermaLink="true"><![CDATA[https://store.steampowered.com/news/48380/]]></guid>
+			<comments>https://steamcommunity.com//discussions/</comments>
+			<pubDate>Thu, 14 Feb 2019 15:28:00 -0800</pubDate>
+			<author>Valve</author>
+			<category>Valve news update</category>
+			<dc:subject>Valve news update</dc:subject>
+			<dc:creator>Valve</dc:creator>
+			<dc:date>2019-02-14T15:28:00-0800</dc:date>
+						<content:encoded><![CDATA[An update has been released for Left 4 Dead.<br><br>- Dev command 'director_log_scavenge_items' can only be executed by the server. Reported via HackerOne.]]></content:encoded>
+					</item>
+					<item rdf:about="https://store.steampowered.com/news/48304/">
+			<title><![CDATA[Daily Deal - Monster Prom, 30% Off]]></title>
+			<link><![CDATA[https://store.steampowered.com/news/48304/]]></link>
+			<guid isPermaLink="true"><![CDATA[https://store.steampowered.com/news/48304/]]></guid>
+			<comments>https://steamcommunity.com//discussions/</comments>
+			<pubDate>Thu, 14 Feb 2019 10:11:00 -0800</pubDate>
+			<author>Valve</author>
+			<category>Valve news update</category>
+			<dc:subject>Valve news update</dc:subject>
+			<dc:creator>Valve</dc:creator>
+			<dc:date>2019-02-14T10:11:00-0800</dc:date>
+						<content:encoded><![CDATA[Today's Deal: Save 30% on <a href='http://store.steampowered.com/app/743450/'>Monster Prom</a>!*<br><br>Look for the deals each day on the front page of Steam.  Or follow us on <a href='http://twitter.com/steam_games'>twitter</a> or <a href='http://www.facebook.com/Steam'>Facebook</a> for instant notifications wherever you are!<br><br>*Offer ends Saturday at 10AM Pacific Time<br><a href="http://store.steampowered.com/app/743450/"><img src="https://steamcdn-a.akamaihd.net/steam/apps/743450/capsule_467x181.jpg" style=" float: left; margin-right: 12px; height: 181px; width: 467px;"></a>]]></content:encoded>
+					</item>
+					<item rdf:about="https://store.steampowered.com/news/48340/">
+			<title><![CDATA[2K Publisher Weekend, Save up to 80%!]]></title>
+			<link><![CDATA[https://store.steampowered.com/news/48340/]]></link>
+			<guid isPermaLink="true"><![CDATA[https://store.steampowered.com/news/48340/]]></guid>
+			<comments>https://steamcommunity.com//discussions/</comments>
+			<pubDate>Thu, 14 Feb 2019 10:10:00 -0800</pubDate>
+			<author>Valve</author>
+			<category>Valve news update</category>
+			<dc:subject>Valve news update</dc:subject>
+			<dc:creator>Valve</dc:creator>
+			<dc:date>2019-02-14T10:10:00-0800</dc:date>
+						<content:encoded><![CDATA[Save up to 80% on 2K Games titles during the <a href='https://store.steampowered.com/sale/2kpublishersale_2019'>2K Publisher Weekend</a>*!<br><br>*Offer ends Monday at 10AM Pacific Time]]></content:encoded>
+					</item>
+					<item rdf:about="https://store.steampowered.com/news/48327/">
+			<title><![CDATA[Free Weekend - NBA 2K19]]></title>
+			<link><![CDATA[https://store.steampowered.com/news/48327/]]></link>
+			<guid isPermaLink="true"><![CDATA[https://store.steampowered.com/news/48327/]]></guid>
+			<comments>https://steamcommunity.com//discussions/</comments>
+			<pubDate>Thu, 14 Feb 2019 10:10:00 -0800</pubDate>
+			<author>Valve</author>
+			<category>Valve news update</category>
+			<dc:subject>Valve news update</dc:subject>
+			<dc:creator>Valve</dc:creator>
+			<dc:date>2019-02-14T10:10:00-0800</dc:date>
+						<content:encoded><![CDATA[Play <a href='http://store.steampowered.com/app/841370/'>NBA 2K19</a> for FREE starting now through Sunday at 1PM Pacific Time. You can also pickup <a href='http://store.steampowered.com/app/841370/'>NBA 2K19</a> at 67% off the regular price!*<br><br>If you already have Steam installed, <a href='steam://run/841370'>click here</a> to install or play NBA 2K19.  If you don't have Steam, you can download it <a href='http://store.steampowered.com/about/'>here</a>.<br><br>*Offer ends Monday at 10AM Pacific Time<br><a href="http://store.steampowered.com/app/841370/"><img src="https://steamcdn-a.akamaihd.net/steam/apps/841370/capsule_467x181.jpg" style=" float: left; margin-right: 12px; height: 181px; width: 467px;"></a>]]></content:encoded>
+					</item>
+					<item rdf:about="https://store.steampowered.com/news/48363/">
+			<title><![CDATA[Free Weekend - Arma 3, 66% off!]]></title>
+			<link><![CDATA[https://store.steampowered.com/news/48363/]]></link>
+			<guid isPermaLink="true"><![CDATA[https://store.steampowered.com/news/48363/]]></guid>
+			<comments>https://steamcommunity.com//discussions/</comments>
+			<pubDate>Thu, 14 Feb 2019 10:05:00 -0800</pubDate>
+			<author>Valve</author>
+			<category>Valve news update</category>
+			<dc:subject>Valve news update</dc:subject>
+			<dc:creator>Valve</dc:creator>
+			<dc:date>2019-02-14T10:05:00-0800</dc:date>
+						<content:encoded><![CDATA[Play <a href='http://store.steampowered.com/app/107410/'>Arma 3</a> for FREE starting now through Sunday at 1PM Pacific Time. You can also pickup <a href='http://store.steampowered.com/app/107410/'>Arma 3</a> at 66% off the regular price!*<br><br>If you already have Steam installed, <a href='steam://run/107410'>click here</a> to install or play Arma 3.  If you don't have Steam, you can download it <a href='http://store.steampowered.com/about/'>here</a>.<br><br>*Offer ends Monday at 10AM Pacific Time<br><a href="http://store.steampowered.com/app/107410/"><img src="https://steamcdn-a.akamaihd.net/steam/apps/107410/capsule_467x181.jpg" style=" float: left; margin-right: 12px; height: 181px; width: 467px;"></a>]]></content:encoded>
+					</item>
+					<item rdf:about="https://store.steampowered.com/news/48372/">
+			<title><![CDATA[Now Available on Steam - Flower]]></title>
+			<link><![CDATA[https://store.steampowered.com/news/48372/]]></link>
+			<guid isPermaLink="true"><![CDATA[https://store.steampowered.com/news/48372/]]></guid>
+			<comments>https://steamcommunity.com//discussions/</comments>
+			<pubDate>Thu, 14 Feb 2019 09:15:00 -0800</pubDate>
+			<author>Valve</author>
+			<category>Valve news update</category>
+			<dc:subject>Valve news update</dc:subject>
+			<dc:creator>Valve</dc:creator>
+			<dc:date>2019-02-14T09:15:00-0800</dc:date>
+						<content:encoded><![CDATA[<a href='http://store.steampowered.com/app/966330/'>Flower</a> is Now Available on Steam!<br><br>Experience award-winning Flower, now available on PC. Flower lets you take control of the wind as you explore and navigate beautiful, lush environments.<br><a href="http://store.steampowered.com/app/966330/"><img src="https://steamcdn-a.akamaihd.net/steam/apps/966330/capsule_467x181.jpg" style=" float: left; margin-right: 12px; height: 181px; width: 467px;"></a>]]></content:encoded>
+					</item>
+					<item rdf:about="https://store.steampowered.com/news/48341/">
+			<title><![CDATA[New DLC Available - Sid Meier's Civilization® VI: Gathering Storm]]></title>
+			<link><![CDATA[https://store.steampowered.com/news/48341/]]></link>
+			<guid isPermaLink="true"><![CDATA[https://store.steampowered.com/news/48341/]]></guid>
+			<comments>https://steamcommunity.com//discussions/</comments>
+			<pubDate>Wed, 13 Feb 2019 22:00:00 -0800</pubDate>
+			<author>Valve</author>
+			<category>Valve news update</category>
+			<dc:subject>Valve news update</dc:subject>
+			<dc:creator>Valve</dc:creator>
+			<dc:date>2019-02-13T22:00:00-0800</dc:date>
+						<content:encoded><![CDATA[<a href='http://store.steampowered.com/app/947510/'>Sid Meier's Civilization&reg; VI: Gathering Storm</a>, all new content for <a href='http://store.steampowered.com/app/289070/'>Sid Meier&rsquo;s Civilization&reg; VI</a> is Now Available on Steam!<br><br>Civilization VI: Gathering Storm introduces an active planet where geology and climatology present unique new challenges. The second expansion to Civilization VI adds new Environmental Effects, Engineering Projects, Power and Consumable Resources, as well as the World Congress and a new Diplomatic Victory. This new expansion also extends the Technology and Civics trees with a future era, and adds eight new civilizations, nine new leaders, a variety of new units, districts, wonders, buildings, and more.<br><br><a href="http://store.steampowered.com/app/947510/"><img src="https://steamcdn-a.akamaihd.net/steam/apps/947510/capsule_467x181.jpg" style=" float: left; margin-right: 12px; height: 181px; width: 467px;"></a>]]></content:encoded>
+					</item>
+					<item rdf:about="https://store.steampowered.com/news/48310/">
+			<title><![CDATA[Daily Deal - Dream Daddy: A Dad Dating Simulator, 69% Off]]></title>
+			<link><![CDATA[https://store.steampowered.com/news/48310/]]></link>
+			<guid isPermaLink="true"><![CDATA[https://store.steampowered.com/news/48310/]]></guid>
+			<comments>https://steamcommunity.com//discussions/</comments>
+			<pubDate>Wed, 13 Feb 2019 10:10:00 -0800</pubDate>
+			<author>Valve</author>
+			<category>Valve news update</category>
+			<dc:subject>Valve news update</dc:subject>
+			<dc:creator>Valve</dc:creator>
+			<dc:date>2019-02-13T10:10:00-0800</dc:date>
+						<content:encoded><![CDATA[Today's Deal: Save 69% on <a href='http://store.steampowered.com/app/654880/'>Dream Daddy: A Dad Dating Simulator</a>!*<br><br>Look for the deals each day on the front page of Steam.  Or follow us on <a href='http://twitter.com/steam_games'>twitter</a> or <a href='http://www.facebook.com/Steam'>Facebook</a> for instant notifications wherever you are!<br><br>*Offer ends Friday at 10AM Pacific Time<br><a href="http://store.steampowered.com/app/654880/"><img src="https://steamcdn-a.akamaihd.net/steam/apps/654880/capsule_467x181.jpg" style=" float: left; margin-right: 12px; height: 181px; width: 467px;"></a>]]></content:encoded>
+					</item>
+					<item rdf:about="https://store.steampowered.com/news/48323/">
+			<title><![CDATA[Now Available on Steam - AWAY: Journey to the Unexpected, 15% off!]]></title>
+			<link><![CDATA[https://store.steampowered.com/news/48323/]]></link>
+			<guid isPermaLink="true"><![CDATA[https://store.steampowered.com/news/48323/]]></guid>
+			<comments>https://steamcommunity.com//discussions/</comments>
+			<pubDate>Wed, 13 Feb 2019 07:56:08 -0800</pubDate>
+			<author>Valve</author>
+			<category>Valve news update</category>
+			<dc:subject>Valve news update</dc:subject>
+			<dc:creator>Valve</dc:creator>
+			<dc:date>2019-02-13T07:56:08-0800</dc:date>
+						<content:encoded><![CDATA[<a href='http://store.steampowered.com/app/573110/'>AWAY: Journey to the Unexpected</a> is Now Available on Steam and is 15% off!*<br><br>In a mood for a little journey to a colourful world full of unexpected events and crazy characters? Jump into a feel-good adventure with rogue-lite elements, where action meets cuteness and powers come with friendship. A love letter to anime and quirkiness from two indie developers.<br><br>*Offer ends February 20 at 10AM Pacific Time<br><a href="http://store.steampowered.com/app/573110/"><img src="https://steamcdn-a.akamaihd.net/steam/apps/573110/capsule_467x181.jpg" style=" float: left; margin-right: 12px; height: 181px; width: 467px;"></a>]]></content:encoded>
+					</item>
+					<item rdf:about="https://store.steampowered.com/news/48277/">
+			<title><![CDATA[Daily Deal - Cold Waters, 50% Off]]></title>
+			<link><![CDATA[https://store.steampowered.com/news/48277/]]></link>
+			<guid isPermaLink="true"><![CDATA[https://store.steampowered.com/news/48277/]]></guid>
+			<comments>https://steamcommunity.com//discussions/</comments>
+			<pubDate>Tue, 12 Feb 2019 10:10:00 -0800</pubDate>
+			<author>Valve</author>
+			<category>Valve news update</category>
+			<dc:subject>Valve news update</dc:subject>
+			<dc:creator>Valve</dc:creator>
+			<dc:date>2019-02-12T10:10:00-0800</dc:date>
+						<content:encoded><![CDATA[Today's Deal: Save 50% on <a href='http://store.steampowered.com/app/541210/'>Cold Waters</a>!*<br><br>Look for the deals each day on the front page of Steam.  Or follow us on <a href='http://twitter.com/steam_games'>twitter</a> or <a href='http://www.facebook.com/Steam'>Facebook</a> for instant notifications wherever you are!<br><br>*Offer ends Thursday at 10AM Pacific Time<br><a href="http://store.steampowered.com/app/541210/"><img src="https://steamcdn-a.akamaihd.net/steam/apps/541210/capsule_467x181.jpg" style=" float: left; margin-right: 12px; height: 181px; width: 467px;"></a>]]></content:encoded>
+					</item>
+					<item rdf:about="https://store.steampowered.com/news/48301/">
+			<title><![CDATA[Midweek Madness - Moonlighter, 40% Off]]></title>
+			<link><![CDATA[https://store.steampowered.com/news/48301/]]></link>
+			<guid isPermaLink="true"><![CDATA[https://store.steampowered.com/news/48301/]]></guid>
+			<comments>https://steamcommunity.com//discussions/</comments>
+			<pubDate>Tue, 12 Feb 2019 10:05:00 -0800</pubDate>
+			<author>Valve</author>
+			<category>Valve news update</category>
+			<dc:subject>Valve news update</dc:subject>
+			<dc:creator>Valve</dc:creator>
+			<dc:date>2019-02-12T10:05:00-0800</dc:date>
+						<content:encoded><![CDATA[Save 40% on <a href='http://store.steampowered.com/app/606150/'>Moonlighter</a> during this week's Midweek Madness*!<br><br>*Offer ends Friday at 10AM Pacific Time<br><a href="http://store.steampowered.com/app/606150/"><img src="https://steamcdn-a.akamaihd.net/steam/apps/606150/capsule_467x181.jpg" style=" float: left; margin-right: 12px; height: 181px; width: 467px;"></a>]]></content:encoded>
+					</item>
+					<item rdf:about="https://store.steampowered.com/news/48300/">
+			<title><![CDATA[Now Available on Steam - RIOT: Civil Unrest, 15% off!]]></title>
+			<link><![CDATA[https://store.steampowered.com/news/48300/]]></link>
+			<guid isPermaLink="true"><![CDATA[https://store.steampowered.com/news/48300/]]></guid>
+			<comments>https://steamcommunity.com//discussions/</comments>
+			<pubDate>Tue, 12 Feb 2019 08:17:57 -0800</pubDate>
+			<author>Valve</author>
+			<category>Valve news update</category>
+			<dc:subject>Valve news update</dc:subject>
+			<dc:creator>Valve</dc:creator>
+			<dc:date>2019-02-12T08:17:57-0800</dc:date>
+						<content:encoded><![CDATA[<a href='http://store.steampowered.com/app/342310/'>RIOT: Civil Unrest</a> is Now Available on Steam and is 15% off!*<br><br>As civil crisis deepens and inequality tears the very fabric of society the discontentment of the masses manifests itself in violent public disturbances and civil disorder. Play as the police or the angry horde as <strong>RIOT &ndash; Civil Unrest</strong> places you in some of the world&rsquo;s most fractious disputes.<br><br>*Offer ends February 19 at 10AM Pacific Time<br><a href="http://store.steampowered.com/app/342310/"><img src="https://steamcdn-a.akamaihd.net/steam/apps/342310/capsule_467x181.jpg" style=" float: left; margin-right: 12px; height: 181px; width: 467px;"></a>]]></content:encoded>
+					</item>
+					<item rdf:about="https://store.steampowered.com/news/48286/">
+			<title><![CDATA[Dota 2 Update - February 11th, 2019]]></title>
+			<link><![CDATA[https://store.steampowered.com/news/48286/]]></link>
+			<guid isPermaLink="true"><![CDATA[https://store.steampowered.com/news/48286/]]></guid>
+			<comments>https://steamcommunity.com//discussions/</comments>
+			<pubDate>Mon, 11 Feb 2019 14:47:00 -0800</pubDate>
+			<author>Valve</author>
+			<category>Valve news update</category>
+			<dc:subject>Valve news update</dc:subject>
+			<dc:creator>Valve</dc:creator>
+			<dc:date>2019-02-11T14:47:00-0800</dc:date>
+						<content:encoded><![CDATA[* New Bloom ended a few hours earlier than intended, the event has now been extended to be active through Feb 12th.<br>* Fixed an issue that caused the New Bloom Nian Courier to drop at lower than expected rates.  This has been corrected, and items have been granted to reflect the proper drop rate.<br>* Fixed a bug that allowed pressing quickbuy in rapid succession to purchase the same item twice.<br>* Several Ranked Emoticons have been increased in size, and all emoticons used during in-game chat are now larger and closer to center on the chat line.]]></content:encoded>
+					</item>
+					<item rdf:about="https://store.steampowered.com/news/48275/">
+			<title><![CDATA[Daily Deal - Pinstripe, 90% Off]]></title>
+			<link><![CDATA[https://store.steampowered.com/news/48275/]]></link>
+			<guid isPermaLink="true"><![CDATA[https://store.steampowered.com/news/48275/]]></guid>
+			<comments>https://steamcommunity.com//discussions/</comments>
+			<pubDate>Mon, 11 Feb 2019 10:10:00 -0800</pubDate>
+			<author>Valve</author>
+			<category>Valve news update</category>
+			<dc:subject>Valve news update</dc:subject>
+			<dc:creator>Valve</dc:creator>
+			<dc:date>2019-02-11T10:10:00-0800</dc:date>
+						<content:encoded><![CDATA[Today's Deal: Save 90% on <a href='http://store.steampowered.com/app/331480/'>Pinstripe</a>!*<br><br>Look for the deals each day on the front page of Steam.  Or follow us on <a href='http://twitter.com/steam_games'>twitter</a> or <a href='http://www.facebook.com/Steam'>Facebook</a> for instant notifications wherever you are!<br><br>*Offer ends Wednesday at 10AM Pacific Time<br><a href="http://store.steampowered.com/app/331480/"><img src="https://steamcdn-a.akamaihd.net/steam/apps/331480/capsule_467x181.jpg" style=" float: left; margin-right: 12px; height: 181px; width: 467px;"></a>]]></content:encoded>
+					</item>
+					<item rdf:about="https://store.steampowered.com/news/48097/">
+			<title><![CDATA[Daily Deal - .hack//G.U. Last Recode, 70% Off]]></title>
+			<link><![CDATA[https://store.steampowered.com/news/48097/]]></link>
+			<guid isPermaLink="true"><![CDATA[https://store.steampowered.com/news/48097/]]></guid>
+			<comments>https://steamcommunity.com//discussions/</comments>
+			<pubDate>Sun, 03 Feb 2019 10:00:00 -0800</pubDate>
+			<author>Valve</author>
+			<category>Valve news update</category>
+			<dc:subject>Valve news update</dc:subject>
+			<dc:creator>Valve</dc:creator>
+			<dc:date>2019-02-03T10:00:00-0800</dc:date>
+						<content:encoded><![CDATA[Today's Deal: Save 70% on <a href='http://store.steampowered.com/app/525480/'>.hack//G.U. Last Recode</a>!*<br><br>Look for the deals each day on the front page of Steam.  Or follow us on <a href='http://twitter.com/steam_games'>twitter</a> or <a href='http://www.facebook.com/Steam'>Facebook</a> for instant notifications wherever you are!<br><br>*Offer ends Monday at 10AM Pacific Time<br><a href="http://store.steampowered.com/app/525480/"><img src="https://steamcdn-a.akamaihd.net/steam/apps/525480/capsule_467x181.jpg" style=" float: left; margin-right: 12px; height: 181px; width: 467px;"></a>]]></content:encoded>
+					</item>
+					<item rdf:about="https://store.steampowered.com/news/48099/">
+			<title><![CDATA[Dota 2 Update - February 1st, 2019]]></title>
+			<link><![CDATA[https://store.steampowered.com/news/48099/]]></link>
+			<guid isPermaLink="true"><![CDATA[https://store.steampowered.com/news/48099/]]></guid>
+			<comments>https://steamcommunity.com//discussions/</comments>
+			<pubDate>Fri, 01 Feb 2019 15:24:00 -0800</pubDate>
+			<author>Valve</author>
+			<category>Valve news update</category>
+			<dc:subject>Valve news update</dc:subject>
+			<dc:creator>Valve</dc:creator>
+			<dc:date>2019-02-01T15:24:00-0800</dc:date>
+						<content:encoded><![CDATA[* Fixed an issue that caused players completing calibration games using Ranked Roles to not have the correct resulting calibrated MMR.  Players who have already played calibration games with this behavior have have their MMR updated to reflect the correct values.]]></content:encoded>
+					</item>
+					<item rdf:about="https://store.steampowered.com/news/48091/">
+			<title><![CDATA[Steam Client Update Released]]></title>
+			<link><![CDATA[https://store.steampowered.com/news/48091/]]></link>
+			<guid isPermaLink="true"><![CDATA[https://store.steampowered.com/news/48091/]]></guid>
+			<comments>https://steamcommunity.com//discussions/</comments>
+			<pubDate>Fri, 01 Feb 2019 11:00:00 -0800</pubDate>
+			<author>Valve</author>
+			<category>Valve news update</category>
+			<dc:subject>Valve news update</dc:subject>
+			<dc:creator>Valve</dc:creator>
+			<dc:date>2019-02-01T11:00:00-0800</dc:date>
+						<content:encoded><![CDATA[A new Steam client has been released and will be automatically downloaded.<br><br><b>Update</b><br><ul style="padding-bottom: 0px; margin-bottom: 0px;" ><li>Fixed issue "Servers content unreachable" related to some IPv6 network configurations<br></ul><br><b>General</b><br><ul style="padding-bottom: 0px; margin-bottom: 0px;" ><li>Support using ipv6 for connections to download servers<br><li>Fixed multiple issues in tracking Steam window and chat window position and size when adjusted by the user or automatically through DPI and screen size changes<br><li>Fixed downloading unnecessary updates for games that self-update after initial install<br><li>Fixed a crash related to SteamVR<br></ul><br><b>Desktop Overlay</b><br><ul style="padding-bottom: 0px; margin-bottom: 0px;" ><li>Added "Force Quit" button to the desktop client overlay, matching existing Big Picture functionality. Force-quitting a game can result in loss of unsaved data<br><li>Added &ldquo;Edit Controller Configuration&rdquo;, which will open the current Steam Input configuration in a new window.<br></ul><br><b>Steam Input</b><br><ul style="padding-bottom: 0px; margin-bottom: 0px;" ><li>Allow the On-screen Keyboard to spawn on secondary monitors<br><li>Fixed a bug that could require you to hit the &ldquo;Summon On-screen Keyboard&rdquo; button twice before it launched<br><li>Fixed Mouse region bindings in windowed games running without the Big Picture Overlay<br><li>Fixed an issue where frequent rumble commands from games could cause input stuttering for PS4 controllers<br><li>Fixed some cases where Steam Controller rumble emulation could get stuck on<br><li>Added support for HORI Battle Pad<br><li>Added support for HORI Wireless Switch Pad<br><li>Added support for PDP Wired Fight Pad Pro<br><li>Added support for PDP Faceoff Wired Pro Controller<br></ul><br><b>Big Picture Mode</b><br><ul style="padding-bottom: 0px; margin-bottom: 0px;" ><li>Fixed race condition in Big Picture chat panel that would intermittently cause some controller actions to not respond<br><li>Fixed issue in Big Picture overlay that was causing it to fail to render screen updates in a timely manner<br><li>Fixed Control-A/Control-B sending enter and backspace respectively on Windows when in web browser and chat panels<br></ul><br><b>Linux</b><br><ul style="padding-bottom: 0px; margin-bottom: 0px;" ><li>Fixed 0-byte downloads getting queued on startup for all Steam Play titles<br><li>Fixed incorrect mouse wheel scrolling offsets<br><li>Fixed an issue where some games wouldn't be properly detected as still running despite some of their processes still lingering in the background<br><li>Fixed system tray including menu sometimes including too many recent game entries<br><li>Fixed settings dialog incorrectly always prompting for a client restart<br><li>Added gnutls 3 to the Steam Runtime, fixing network connectivity issues in many Steam Play titles<br><li>Fixed an issue with host libssl on newer distributions breaking some titles<br><li>Fixed a bug that could result in being unable to create shortcuts for certain games. To unblock previously affected titles, delete all *.ico and *.zip files from ~/.steam/root/steam/games and "Verify Game Files" to re-download the icons with the right format<br><li>Fixed a crash with in-game purchases in Big Picture<br><li>Fixed a case where drop-down menus or notifications would become stuck on screen<br><li>Added the ability to force Steam Play compatibility tools for non-Steam game shortcuts<br></ul><br><b>macOS</b><br><ul style="padding-bottom: 0px; margin-bottom: 0px;" ><li>Added the ability to quit games from the Steam overlay<br></ul>]]></content:encoded>
+					</item>
+	</rdf:RDF>
