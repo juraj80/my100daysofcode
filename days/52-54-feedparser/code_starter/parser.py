@@ -5,7 +5,7 @@ FEED_FILE = "newreleases.xml"
 print(FEED_FILE)
 
 # feed = feedparser.parse(FEED_FILE)
-feed = feedparser.parse(r'newreleases.xml')
+feed = feedparser.parse('newreleases.xml')
 print('Feed Title: {}'.format(feed['feed']['title']))
 
 if 'title' in feed.entries[0]:
