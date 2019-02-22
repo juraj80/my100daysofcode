@@ -1,7 +1,8 @@
 import uplink
 import requests
+from uplink_helpers import raise_for_status
 
-
+@raise_for_status
 class MovieSearchClient(uplink.Consumer):
     def __init__(self):
         super().__init__(base_url='http://movie_service.talkpython.fm/')
@@ -15,7 +16,7 @@ class MovieSearchClient(uplink.Consumer):
         """ Get all movie entries from the server by director. """
 
     @uplink.get('/api/movie/{imdb_number}')
-    def get_movies_by_imdb_code(self, imdb_number):
+    def get_movies_by_imdb_code(self, imdb_number) -> requests.models.Response:
         """ Get movie from the server by imdb number. """
 
 

@@ -2,7 +2,7 @@ from api import MovieSearchClient
 import collections
 
 MovieResult = collections.namedtuple('MovieResult', 'imdb_code, title, director, keywords, '
-                                        'duration, genres, rating, year, imdb_score')
+                                     'duration, genres, rating, year, imdb_score')
 
 def print_header():
     print('------------------------------------------')
@@ -25,7 +25,7 @@ def search_event_loop():
             movie_string = input('Enter a movie name: ')
             movies = search_movies(movie_string)
             print()
-            print("Found {} movies for '{}' search : ".format(len(movies), movie_string))
+            print("Found {} movies for '{}' search : ".format(len(movies.get('hits')), movie_string))
             print()
             print_movies(movies)
 
@@ -33,13 +33,20 @@ def search_event_loop():
             director_string = input('Enter a director name: ')
             movies = search_movies_by_director(director_string)
             print()
-            print("Found {} movies for '{}' search : ".format(len(movies), director_string))
+            print("Found {} movies for '{}' search : ".format(len(movies.get('hits')), director_string))
             print()
             print_movies(movies)
 
         elif key == '3':
-            imdb_number = input('Enter imdb number of a movie: ')
-            movie = search_movies_by_imdb_code(imdb_number)
+            while True:
+                try:
+                    imdb_number = input('Enter imdb number of a movie: ')
+                    movie = search_movies_by_imdb_code(imdb_number)
+                except:
+                    print()
+                    print("Wrong imdb number! ")
+                    print()
+                
             r = MovieResult(**movie)
             print(f'Title: {r.title}')
             print(f'Director: {r.director}')
@@ -66,7 +73,6 @@ def search_movies_by_director(director_name):
 def search_movies_by_imdb_code(imdb_code):
     msc = MovieSearchClient()
     resp = msc.get_movies_by_imdb_code(imdb_code)
-
     result = resp.json()
     return result
 
