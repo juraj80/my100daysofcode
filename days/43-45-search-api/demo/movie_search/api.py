@@ -5,9 +5,7 @@ import collections
 from pprint import pprint
 
 
-Movie = collections.namedtuple('Movie', 'imdb_code, title, director, keywords, '
-                                        'duration, genres, rating, year, imdb_score')
-
+  
 
 def find_movie_by_title(keyword: str) -> List[Movie]:  # type hint, it enables hints for method
     url = f'http://movie_service.talkpython.fm/api/search/{keyword}'
