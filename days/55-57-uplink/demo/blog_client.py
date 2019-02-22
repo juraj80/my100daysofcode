@@ -6,7 +6,7 @@ import uplink
 from uplink_helpers import raise_for_status
 
 
-@uplink.json
+@uplink.json    # for uplink.body, we had to specify JSON otherwise it's going to pass it as form encoded to the server
 @raise_for_status
 class BlogClient(uplink.Consumer):
 
@@ -21,13 +21,13 @@ class BlogClient(uplink.Consumer):
     def entry_by_id(self, post_id) -> requests.models.Response:
         """ Get single blog post details. """
 
-    def create_new_entry(self, title: str, content: str,
+    def create_new_entry(self, title: str, content: str,            # for uplink.post we wrote this wrapper function that takes meaningful arguments, with default values
                          views: int = 0, published: str = None) -> requests.models.Response:
         if published is None:
             published = datetime.datetime.now().isoformat()
 
         # noinspection PyTypeChecker
-        return self.__create_new_entry(
+        return self.__create_new_entry(    # and then return this hidden internal function that routes to our url/api/blog
             title=title,
             content=content,
             view_count=views,

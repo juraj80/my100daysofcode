@@ -97,4 +97,6 @@ Here are [some examples](https://twitter.com/search?q=%23100DaysOfCode) to inspi
 
 *See a mistake in these instructions? Please [submit a new issue](https://github.com/talkpython/100daysofcode-with-python-course/issues) or fix it and [submit a PR](https://github.com/talkpython/100daysofcode-with-python-course/pulls).*
 
+### Concepts: uplink
 
+![alt=text](pics/pic01.png)
