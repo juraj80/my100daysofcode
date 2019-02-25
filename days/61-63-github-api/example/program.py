@@ -24,7 +24,10 @@ def get_repo_stats(user, n=5):
                           forks=repo.forks_count))
     return sorted(repos, key = lambda x: x.stars, reverse=True)[:n]
 
-jk = gh.get_user('juraj80')
+def main():
 
-print(get_repo_stats(pb))
-print(get_repo_stats(jk))
+    print('Pybites Github stats: ')
+    print(get_repo_stats(pb))
+
+if __name__ == '__main__':
+    main()
