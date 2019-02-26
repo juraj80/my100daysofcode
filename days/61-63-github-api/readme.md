@@ -68,7 +68,7 @@ pb
 
 #### Pro tip: getting help in Python
 
-Let's use the Github API to get the most popular repos for a user. Popularity is defined as the numebr of star(gazers) a repo obtained during its lifetime.
+Let's use the Github API to get the most popular repos for a user. Popularity is defined as the number of star(gazers) a repo obtained during its lifetime.
 
 When working with _pygithub_ expect to do some object inspection on the fly, here is where you might want to learn about [Python's help methods](https://pybit.es/python-help.html):
 
