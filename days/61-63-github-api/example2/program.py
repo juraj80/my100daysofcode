@@ -4,6 +4,7 @@ import github_credentials
 
 from github import Github, InputFileContent
 
+
 def program():
     """1. Go to your Github Settings and create Personal access token
        2. Define a name and choose the type of access you want to grant.
@@ -38,11 +39,26 @@ def program():
        
     '''
 
+    code2 = '''
+    
+    import time
+    import os
+    def follow(thefile):
+        thefile.seek(0, os.SEEK_END) # End-of-file
+        while True:
+             line = thefile.readline()
+             if not line:
+                 time.sleep(0.1)    # Sleep briefly
+                 continue
+             yield line
+    '''
+
+    # me.create_gist(True,
+    #                {"repo_stats.py": InputFileContent(code)},
+    #                "Get GH user's most popular repos")
     me.create_gist(True,
-                   {"repo_stats.py": InputFileContent(code)},
-                   "Get GH user's most popular repos")
-
-
+                   {"tail-f.py": InputFileContent(code2)},
+                   'Seek to the end of the file and repeatedly try to read new lines.')
 
 
 if __name__ == '__main__':
