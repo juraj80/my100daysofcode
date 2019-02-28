@@ -41,24 +41,51 @@ def program():
 
     code2 = '''
     
-    import time
-    import os
-    def follow(thefile):
-        thefile.seek(0, os.SEEK_END) # End-of-file
-        while True:
-             line = thefile.readline()
-             if not line:
-                 time.sleep(0.1)    # Sleep briefly
-                 continue
-             yield line
+    import smtplib
+    from email.mime.multipart import MIMEMultipart
+    from email.mime.text import MIMEText
+
+    from_addr = 'myemail@gmail.com'
+    to_addr = 'toemail@gmail.com'
+    bcc = ['other@gmail.com', 'myemail@gmail.com', 'email@gmail.com']
+    
+    msg = MIMEMultipart()
+    msg['From'] = from_addr
+    msg['To'] = to_addr
+    msg['Subject'] = 'New Releases'
+    
+    body = """ New Releases and Sales!
+        
+    Click the links below to check them out!
+       
+    """
+    
+    msg.attach(MIMEText(body, 'plain'))
+    
+    smtp_server = smtplib.SMTP('smtp.gmail.com', 587)
+    
+    smtp_server.ehlo()
+    
+    smtp_server.starttls()
+    
+    smtp_server.login(' myemail@gmail.com ', ' <application id> ')
+    
+    text = msg.as_string()
+    
+    smtp_server.sendmail(from_addr, [to_addr] + bcc, text)
+    
+    smtp_server.quit()
+    
+    print('Email sent successfully')
+    
     '''
 
     # me.create_gist(True,
     #                {"repo_stats.py": InputFileContent(code)},
     #                "Get GH user's most popular repos")
     me.create_gist(True,
-                   {"tail-f.py": InputFileContent(code2)},
-                   'Seek to the end of the file and repeatedly try to read new lines.')
+                   {"emailer.py": InputFileContent(code2)},
+                   'A simple script for sending emails using smtplib.')
 
 
 if __name__ == '__main__':
