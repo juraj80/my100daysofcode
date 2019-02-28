@@ -1,12 +1,12 @@
 import pyperclip
 import logbook
 
-app_log = logbook.Logger('Clipboard')
+app_log = logbook.Logger('APP')
 
 def paste_from_clipboard():
     text = pyperclip.paste()
     app_log.trace(text)
-    return None
+    print('Clipboard logged. ')
 
 
 def init_logging(filename: str = None):
@@ -17,12 +17,12 @@ def init_logging(filename: str = None):
     else:
         logbook.StreamHandler(sys.stdout, level=level).push_application()
 
-    msg = 'Logging of clipboard initialized, level: {}, mode: {}'.format(
-        level,
-        "stdout mode" if not filename else 'file mode: ' + filename
-    )
-    logger = logbook.Logger('Startup')
-    logger.notice(msg)
+    # msg = 'Logging of clipboard initialized, level: {}, mode: {}'.format(
+    #     level,
+    #     "stdout mode" if not filename else 'file mode: ' + filename
+    # )
+    # logger = logbook.Logger('Startup')
+    # logger.notice(msg)
 
 if __name__ == '__main__':
     init_logging('clipboard_file.log')

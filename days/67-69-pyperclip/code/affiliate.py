@@ -6,10 +6,6 @@ AFFILIATE_CODE = '&tag=pyb0f-20'
 
 url = pyperclip.paste()
 
-history = []
-history.append(url)
-print(history)
-
 if 'amazon' not in url:
     print('Sorry, invalid link.')
 else:
