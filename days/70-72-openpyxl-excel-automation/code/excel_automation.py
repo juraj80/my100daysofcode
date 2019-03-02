@@ -8,7 +8,7 @@ maxrow = ws1.max_row
 
 def insert_sum():
     ws1['L' + str(maxrow)] = "=SUM(L2:L" + str(maxrow - 1) + ")"
-  
+
 
 if __name__ == "__main__":
     insert_sum()

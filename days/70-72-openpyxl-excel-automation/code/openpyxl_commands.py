@@ -17,15 +17,19 @@ for row in range(2, ws1.max_row):
     print(ws1[cell].value)
 
 #####
+# import pdb; pdb.set_trace()
+# profit_total = 0
+# for col in list('L'):
+#     for row in range(2, 101):
+#         cell = col + str(row)
+#         profit_total += float(ws1[cell].value)
 
 profit_total = 0
-for col in list('L'):
-    for row in range(2, 101):
-        cell = col + str(row)
-        profit_total += float(ws1[cell].value)
+for row in range(2, 101):
+    cell = 'L' + str(row)
+    profit_total += float(ws1[cell].value)
         
 print(profit_total)
-
 
 #####
 
