@@ -494,6 +494,17 @@ And the result:
 driver.close()
 ```
 
+### Concepts
+
+![alt=text](pics/pic01.png)
+
+![alt=text](pics/pic02.png)
+
+![alt=text](pics/pic03.png)
+
+
+
+
 ## Second + third day: practice time!
 
 Now it's your turn. The goal is to have you get your hands dirty using Python Selenium.
