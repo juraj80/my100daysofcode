@@ -1,7 +1,6 @@
+##Using Python Selenium to Automate Tasks
 
-## Using Python Selenium to Automate Tasks
-
-### First day: Selenium by Example
+###First day: Selenium by Example
 
 Selenium is a great tool to write functional/acceptance tests and automation scripts that require interaction with a webpage. 
 
