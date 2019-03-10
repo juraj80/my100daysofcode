@@ -1,26 +1,35 @@
 from selenium import webdriver
+import pytest
 
 URL = "http://pyplanet.herokuapp.com/"
 LINK_TEXT = "Codementor: PySpark Programming"
+PAGE_TITLE = "PyBites 100 Days of Django"
+APP_NAME = 'PyPlanet Article Sharer App'
+USERNAME, PASSWORD = 'guest', 'changeme'
 
 
+@pytest.fixture(scope='module')
 def test_setup():
     global driver
     driver = webdriver.Chrome()
     driver.implicitly_wait(10)
     driver.maximize_window()
+    yield
+    driver.close()
+    driver.quit()
+    print("Test completed.")
 
 
-def test_header():
+def test_header(test_setup):
     """
     Go to the http://pyplanet.herokuapp.com/. The header should say PyBites 100 Days of Django.
     """
     driver.get(URL)
     heading = driver.find_element_by_tag_name('h1').text
-    assert heading == "PyBites 100 Days of Django"
+    assert heading == PAGE_TITLE
 
 
-def test_navbar():
+def test_navbar(test_setup):
     """
     The navbar has Login and
     Home links. The first link in the main div is PyPlanet Article Sharer App.
@@ -29,14 +38,14 @@ def test_navbar():
     driver.find_element_by_link_text('Home')
 
 
-def test_hyperlink():
+def test_hyperlink(test_setup):
     """
     Click on the PyPlanet Article Sharer App link.
     """
-    driver.find_element_by_link_text('PyPlanet Article Sharer App').click()
+    driver.find_element_by_link_text(APP_NAME).click()
 
 
-def test_table():
+def test_table(test_setup):
     """
     Test the page contains a table with a th (table header) containing
     the word Title. This app watches the PyPlanet feed so the titles change every day so that is hard test. What we can
@@ -49,7 +58,7 @@ def test_table():
     assert len(elements) == 100
 
 
-def test_header_link():
+def test_header_link(test_setup):
     """
     Go to an article and check there is only a Go back button (logged out view). Check if the header link at the top is
     the same as the link you clicked on. The Go back should redirect back to the app's home page.
@@ -66,17 +75,17 @@ def test_header_link():
     assert home_page == driver.current_url
 
 
-def test_login():
+def test_login(test_setup):
     """
     Using Selenium click Login and login with user: guest / password: changeme - then click the blue Login button
     """
     driver.find_element_by_xpath('//a[@href="/login/"]').click()
-    driver.find_element_by_name('username').send_keys('guest')
-    driver.find_element_by_name('password').send_keys('changeme')
+    driver.find_element_by_name('username').send_keys(USERNAME)
+    driver.find_element_by_name('password').send_keys(PASSWORD)
     driver.find_element_by_tag_name('button').click()
 
 
-def test_redirect():
+def test_redirect(test_setup):
     """
     Check you are redirected back to 100Days home and if navigation contains Welcome back, guest! and Logout and Home links.
     """
@@ -85,7 +94,7 @@ def test_redirect():
     assert login_text == 'Welcome back, guest! Logout  | Home'
 
 
-def test_tweet_button():
+def test_tweet_button(test_setup):
     """
     Going back to the article link (3.), check that you now have a Tweet this button alongside the Go back button. Optionally
     you can check the link of the Tweet this button (extra check: PyBites entries have New PyBites Article prepended).
@@ -95,7 +104,7 @@ def test_tweet_button():
     driver.find_element_by_link_text('Tweet this')
 
 
-def test_logout():
+def test_logout(test_setup):
     """
     Finally logout with Selenium and check for See you! and You have been successfully logged out., logout in the URL,
     and navbar links are Login and Home again
@@ -106,7 +115,4 @@ def test_logout():
     assert 'You have been successfully logged out.' == driver.find_element_by_tag_name('p').text
 
 
-def test_teardown():
-    driver.close()
-    driver.quit()
-    print("Test completed.")
+
