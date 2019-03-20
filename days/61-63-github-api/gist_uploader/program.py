@@ -80,12 +80,26 @@ def program():
     
     '''
 
+    code3 = '''
+    #python tip:  zip() with star-arguments is great for transposing 2-D data:
+    m = [(1, 2, 3), (4, 5, 6)]
+    list(zip(*m))
+    [(1, 4), (2, 5), (3, 6)]
+    
+    def transpose_list_of_tuples(data):
+        if isinstance(data, dict):
+            data = data.items()
+        transposed = list(zip(*data))
+        return transposed
+    
+    '''
+
     # me.create_gist(True,
     #                {"repo_stats.py": InputFileContent(code)},
     #                "Get GH user's most popular repos")
     me.create_gist(True,
-                   {"emailer.py": InputFileContent(code2)},
-                   'A simple script for sending emails using smtplib.')
+                   {"transpose.py": InputFileContent(code3)},
+                   'zip() with star-arguments is great for transposing 2-D data')
 
 
 if __name__ == '__main__':
