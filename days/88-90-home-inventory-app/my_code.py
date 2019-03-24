@@ -4,11 +4,13 @@ from contextlib import contextmanager
 
 DB = "inventory.db"
 
+
 def first_launch():
     try:
         conn = sqlite3.connect(DB)
     except:
         sys.exit('Error code X.')
+
 
 @contextmanager
 def access_db():
@@ -18,18 +20,14 @@ def access_db():
     conn.commit()
     conn.close()
 
+
 def main_menu():
-    menu = {}
-    menu['1'] = "Add Room."
-    menu['2'] = "Add Inventory."
-    menu['3'] = "View Inventory List."
-    menu['4'] = "Total Value."
-    menu['5'] = "Exit."
+    menu = {'1': "Add Room.", '2': "Add Inventory.", '3': "View Inventory List.", '4': "Total Value.", '5': "Exit."}
 
     while True:
         print('\n')
-        for num,item in sorted(menu.items()):
-            print(num,item)
+        for num, item in sorted(menu.items()):
+            print(num, item)
 
         choice = input('Selection: ')
         if choice == '1':
@@ -45,6 +43,7 @@ def main_menu():
         else:
             print("Invalid option, try again.")
 
+
 def check_input():
     while True:
         print('\n')
@@ -57,6 +56,7 @@ def check_input():
         else:
             return scrub(selection)
 
+
 def add_room():
     name = input('Enter the name of new room: ')
     name = scrub(name)
@@ -65,6 +65,7 @@ def add_room():
         cursor.execute("CREATE TABLE'" + name.lower() + "'(Item TEXT, Value REAL)")
 
         print("\nRoom with name %s was added to the db." % name)
+
 
 # def list_rooms():
 #     return [room for room, items in ROOMS.items()]
@@ -94,7 +95,8 @@ def view_inventory(room):
             total += data[1]
         print("Total value of room %s: $%d" % (room, total))
 
-#Function to calculate the $ total of the entire database.
+
+# Function to calculate the $ total of the entire database.
 def calc_total():
     total = 0
     room_list = list_rooms()
@@ -108,7 +110,7 @@ def calc_total():
 
 
 def list_rooms():
-    room_list =[]
+    room_list = []
     with access_db() as cursor:
         cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
         for room in cursor:
@@ -117,13 +119,9 @@ def list_rooms():
 
 
 def scrub(name):
-    return ''.join( chr for chr in name if chr.isalnum())
-
+    return ''.join(chr for chr in name if chr.isalnum())
 
 
 if __name__ == '__main__':
     first_launch()
     main_menu()
-
-
-

@@ -113,7 +113,7 @@ def access_db():
         conn.commit()
         conn.close()
 ```
-and its use in a function:
+and its 'pythonic' use in a function:
 
 ```python
 def list_rooms():
@@ -149,7 +149,7 @@ def scrub(name):
 'Juraj99123'
 ```
 
-Whole CLI with connection to DB:
+Whole CLI program with connection to DB:
 
 ```python
 import sqlite3
