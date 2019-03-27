@@ -51,10 +51,6 @@ def find_or_create_player(name: str) -> Player:
     session.add(player)
     session.commit()
 
-    player = session.query(Player).filter(Player.name == name).first()
-    return player
-
-
 def all_players() -> List[Player]:
     session = session_factory.create_session()
 
